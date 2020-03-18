@@ -1,0 +1,10 @@
+name: Atecos
+form: $/martinimultimedia/asso/models/ateco/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Ateco
+defaultRedirect: martinimultimedia/asso/atecos
+create:
+    redirect: 'martinimultimedia/asso/atecos/update/:id'
+    redirectClose: martinimultimedia/asso/atecos
+update:
+    redirect: martinimultimedia/asso/atecos
+    redirectClose: martinimultimedia/asso/atecos

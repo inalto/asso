@@ -1,0 +1,51 @@
+columns:
+    name:
+        label: 'Ragione Sociale'
+        type: text
+        searchable: true
+        sortable: true
+    pec:
+        label: PEC
+        type: text
+        searchable: true
+        sortable: true
+    vat:
+        label: P.IVA
+        type: text
+        searchable: true
+        sortable: true
+    cf:
+        label: C.F.
+        type: text
+        searchable: true
+        sortable: true
+    zip:
+        label: Cap
+        type: text
+        searchable: true
+        sortable: true
+    city:
+        label: Città
+        type: text
+        searchable: true
+        sortable: true
+    state:
+        label: Provincia
+        type: text
+        searchable: true
+        sortable: true
+    address:
+        label: Indirizzo
+        type: text
+        searchable: true
+        sortable: true
+    ateco:
+        label: 'Cod. Ateco'
+        sortable: false
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/company/_ateco.htm
+    umes:
+        label: Umes
+        type: text
+        searchable: true
+        sortable: true

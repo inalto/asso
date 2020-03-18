@@ -1,0 +1,12 @@
+list: $/martinimultimedia/asso/models/ateco/columns.yaml
+modelClass: MartiniMultimedia\Asso\Models\Ateco
+title: Atecos
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 50
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'martinimultimedia/asso/atecos/update/:id'

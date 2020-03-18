@@ -1,0 +1,12 @@
+list: $/martinimultimedia/asso/models/person/columns.yaml
+modelClass: MartiniMultimedia\Asso\Models\Person
+title: People
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'martinimultimedia/asso/people/update/:id'

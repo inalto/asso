@@ -1,0 +1,4 @@
+title: Aziende
+modelClass: MartiniMultimedia\Asso\Models\Company
+toolbar:
+    buttons: reorder_toolbar

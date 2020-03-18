@@ -1,0 +1,4 @@
+title: Ateco
+modelClass: MartiniMultimedia\Asso\Models\Ateco
+toolbar:
+    buttons: reorder_toolbar

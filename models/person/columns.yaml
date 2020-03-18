@@ -1,0 +1,55 @@
+columns:
+    first_name:
+        label: Cognome
+        type: text
+        searchable: true
+        sortable: true
+    last_name:
+        label: Nome
+        type: text
+        searchable: true
+        sortable: true
+    birth_date:
+        label: 'Data di nascita'
+        type: date
+        searchable: true
+        sortable: true
+    birth_city:
+        label: 'Città di nascita'
+        type: text
+        searchable: true
+        sortable: true
+    cf:
+        label: C.F.
+        type: text
+        searchable: true
+        sortable: true
+    phones:
+        label: 'N° telefono'
+        type: partial
+        searchable: true
+        sortable: true
+        path: ~/plugins/martinimultimedia/asso/models/company/_phones.htm
+    emails:
+        label: Email
+        type: partial
+        searchable: true
+        sortable: true
+        path: ~/plugins/martinimultimedia/asso/models/company/_emails.htm
+    task:
+        label: Mansione
+        type: text
+        searchable: true
+        sortable: true
+    company:
+        label: Azienda
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: company
+    cna:
+        label: CNA
+        type: inetis-list-switch
+        searchable: true
+        sortable: true

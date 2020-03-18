@@ -1,0 +1,4 @@
+title: Servizi
+modelClass: MartiniMultimedia\Asso\Models\Service
+toolbar:
+    buttons: reorder_toolbar

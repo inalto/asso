@@ -1,0 +1,86 @@
+fields:
+    name:
+        label: Nome
+        span: full
+        type: text
+        comment: 'Ragione sociale dell''azienda'
+    cf:
+        label: CF
+        span: auto
+        type: text
+        comment: 'Codice fiscale'
+    vat:
+        label: P.IVA
+        span: auto
+        type: text
+        comment: 'Partita iva'
+    sdi:
+        label: Cod. SDI
+        span: auto
+        type: text
+        comment: 'Codice destinatario'
+    pec:
+        label: PEC
+        span: auto
+        type: text
+        comment: 'Posta certificata'
+    umes:
+        label: Cod UMES
+        span: auto
+        type: text
+        comment: 'Unione dei mestieri'
+    address:
+        label: Indirizzo
+        span: auto
+        type: text
+    city:
+        label: Città
+        span: auto
+        type: text
+    state:
+        label: Provincia
+        span: auto
+        type: text
+    note:
+        label: Note
+        size: large
+        span: full
+        type: richeditor
+    ateco:
+        label: 'Codice Ateco'
+        nameFrom: name
+        descriptionFrom: description
+        prompt: 'Scegli il codice ATECO'
+        list: $/martinimultimedia/asso/models/ateco/columns.yaml
+        span: full
+        trigger:
+            action: empty
+            field: ateco_id
+        containerAttributes: {  }
+        type: recordfinder
+    phones:
+        label: Telefoni
+        prompt: 'Aggiungi numero'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                number:
+                    label: Numero
+                    span: auto
+                    type: text
+                rif:
+                    label: Riferimento
+                    span: auto
+                    type: text
+    emails:
+        label: Email
+        prompt: 'Aggiungi indirizzo'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                email:
+                    label: 'Indirizzo email'
+                    span: auto
+                    type: text

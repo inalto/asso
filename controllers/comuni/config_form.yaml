@@ -1,0 +1,10 @@
+name: Comuni
+form: $/martinimultimedia/asso/models/comune/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Comune
+defaultRedirect: martinimultimedia/asso/comuni
+create:
+    redirect: 'martinimultimedia/asso/comuni/update/:id'
+    redirectClose: martinimultimedia/asso/comuni
+update:
+    redirect: martinimultimedia/asso/comuni
+    redirectClose: martinimultimedia/asso/comuni

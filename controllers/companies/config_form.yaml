@@ -1,0 +1,10 @@
+name: Aziende
+form: $/martinimultimedia/asso/models/company/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Company
+defaultRedirect: martinimultimedia/asso/companies
+create:
+    redirect: 'martinimultimedia/asso/companies/update/:id'
+    redirectClose: martinimultimedia/asso/companies
+update:
+    redirect: martinimultimedia/asso/companies
+    redirectClose: martinimultimedia/asso/companies

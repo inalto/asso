@@ -1,0 +1,21 @@
+columns:
+    first_name:
+        label: Cognome
+        type: text
+    last_name:
+        label: Nome
+        type: text
+    cf:
+        label: "C.F."
+        type: text
+    phones:
+        label: "N° telefono"
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/company/_phones.htm
+    emails:
+        label: "Email"
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/company/_emails.htm
+    task_id:
+        label: Mansione
+        type: number

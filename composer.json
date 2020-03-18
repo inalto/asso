@@ -1,0 +1,14 @@
+{
+    "name": "martinimultimedia/asso",
+    "description": "Gestio\b\b\b",
+    "require": {
+        "phpoffice/phpspreadsheet": "^1.9",
+        "alexeyco/spinner": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Alain Martini",
+            "email": "webmaster@inalto.com"
+        }
+    ]
+}

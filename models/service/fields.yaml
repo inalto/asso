@@ -1,0 +1,12 @@
+fields:
+    name:
+        label: Nome
+        span: full
+        type: text
+        comment: 'Nome del servizio'
+    description:
+        label: Descrizione
+        size: large
+        span: full
+        type: richeditor
+        comment: 'Descrizione del servizio'

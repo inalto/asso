@@ -1,0 +1,10 @@
+name: Servizi
+form: $/martinimultimedia/asso/models/service/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Service
+defaultRedirect: martinimultimedia/asso/services
+create:
+    redirect: 'martinimultimedia/asso/services/update/:id'
+    redirectClose: martinimultimedia/asso/services
+update:
+    redirect: martinimultimedia/asso/services
+    redirectClose: martinimultimedia/asso/services

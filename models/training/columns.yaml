@@ -1,0 +1,21 @@
+columns:
+    name:
+        label: Corso
+        type: text
+        searchable: true
+        ortable: true
+    teacher:
+        label: Docente
+        type: text
+        searchable: true
+        sortable: true
+    hours:
+        label: Durata (ore)
+        type: text
+        searchable: true
+        sortable: true
+    location_city:
+        label: Luogo
+        type: text
+        searchable: true
+        sortable: true

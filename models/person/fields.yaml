@@ -1,0 +1,79 @@
+fields:
+    image:
+        label: Foto
+        oc.commentPosition: ''
+        mode: image
+        imageHeight: '200'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    task:
+        label: 'Mansione'
+        span: auto
+        type: text
+    cna:
+        label: 'CNA?'
+        span: auto
+        type: switch
+    other:
+        label: 'Altro'
+        span: auto
+        type: text
+    last_name:
+        label: Cognome
+        span: auto
+        type: text
+    first_name:
+        label: Nome
+        span: auto
+        type: text
+    birth_date:
+        label: 'Nato/a il'
+        oc.commentPosition: ''
+        mode: date
+        span: auto
+        type: datepicker
+    birth_city:
+        label: Città
+        span: auto
+        type: text
+    birth_state:
+        label: Provincia
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    cf:
+        label: 'Codice Fiscale'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+
+    phones:
+        label: Telefoni
+        prompt: 'Aggiungi numero'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                number:
+                    label: Numero
+                    span: auto
+                    type: text
+                rif:
+                    label: Riferimento
+                    span: auto
+                    type: text
+    emails:
+        label: Email
+        prompt: 'Aggiungi indirizzo'
+        span: auto
+        type: repeater
+        form:
+            fields:
+                email:
+                    label: Indirizzo
+                    span: auto
+                    type: text

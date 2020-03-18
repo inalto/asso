@@ -1,0 +1,36 @@
+plugin:
+    name: 'martinimultimedia.asso::lang.plugin.name'
+    description: 'martinimultimedia.asso::lang.plugin.description'
+    author: 'Martini Multimedia'
+    icon: oc-icon-users
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: CNA
+        url: martinimultimedia/asso/companies/dashboard
+        icon: icon-bank
+        sideMenu:
+            side-menu-item:
+                label: Aziende
+                url: martinimultimedia/asso/companies
+                icon: icon-book
+            side-menu-item2:
+                label: Servizi
+                url: martinimultimedia/asso/services
+                icon: icon-sitemap
+            side-menu-item3:
+                label: Formazione
+                url: martinimultimedia/asso/trainings
+                icon: icon-certificate
+            side-menu-item4:
+                label: Persone
+                url: martinimultimedia/asso/people
+                icon: icon-users
+            side-menu-item5:
+                label: Ateco
+                url: martinimultimedia/asso/atecos
+                icon: icon-sitemap
+permissions:
+    martinimultimedia.asso:
+        tab: 'martinimultimedia.asso::lang.plugin.name'
+        label: 'martinimultimedia.asso::lang.plugin.permission.label'

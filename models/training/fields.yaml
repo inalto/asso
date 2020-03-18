@@ -1,0 +1,22 @@
+fields:
+    name:
+        label: Nome
+        span: auto
+        type: text
+    slug:
+        label: Alias
+        span: auto
+        type: text
+    description:
+        label: Descrizione
+        size: large
+        span: full
+        type: richeditor
+    teacher:
+        label: Docente
+        span: auto
+        type: text
+    hours:
+        label: Ore
+        span: auto
+        type: number

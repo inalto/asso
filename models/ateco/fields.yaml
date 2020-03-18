@@ -1,0 +1,16 @@
+fields:
+    code:
+        label: Codice
+        span: auto
+        type: text
+        comment: 'Codice Ateco'
+    name:
+        label: Mnemonico
+        span: auto
+        type: text
+        comment: 'Codice mnemonico separato da punti'
+    description:
+        label: Descrizione
+        size: large
+        span: full
+        type: textarea
