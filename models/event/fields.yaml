@@ -1,0 +1,15 @@
+fields:
+    subject:
+        label: Evento
+        span: full
+        type: text
+    start_time:
+        label: 'Ora inizio'
+        mode: datetime
+        span: auto
+        type: datepicker
+    end_time:
+        label: 'Ora finale'
+        mode: datetime
+        span: auto
+        type: datepicker

@@ -1,0 +1,10 @@
+name: Events
+form: $/martinimultimedia/asso/models/event/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Event
+defaultRedirect: martinimultimedia/asso/events
+create:
+    redirect: 'martinimultimedia/asso/events/update/:id'
+    redirectClose: martinimultimedia/asso/events
+update:
+    redirect: martinimultimedia/asso/events
+    redirectClose: martinimultimedia/asso/events

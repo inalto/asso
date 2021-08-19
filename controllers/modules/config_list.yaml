@@ -1,0 +1,12 @@
+list: $/martinimultimedia/asso/models/module/columns.yaml
+modelClass: MartiniMultimedia\Asso\Models\Module
+title: Modules
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'martinimultimedia/asso/modules/update/:id'

@@ -36,6 +36,7 @@ fields:
         mode: date
         span: auto
         type: datepicker
+        ignoretimezone: true
     birth_city:
         label: Città
         span: auto

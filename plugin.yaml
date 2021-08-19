@@ -9,7 +9,13 @@ navigation:
         label: CNA
         url: martinimultimedia/asso/companies/dashboard
         icon: icon-bank
+        permissions:
+            - martinimultimedia.asso
         sideMenu:
+            side-menu-item7:
+                label: Cruscotto
+                url: martinimultimedia/asso/companies/dashboard
+                icon: icon-dashboard
             side-menu-item:
                 label: Aziende
                 url: martinimultimedia/asso/companies
@@ -22,6 +28,10 @@ navigation:
                 label: Formazione
                 url: martinimultimedia/asso/trainings
                 icon: icon-certificate
+            side-menu-item8:
+                label: 'martinimultimedia.asso::lang.lang.plugin.module.menu'
+                url: martinimultimedia/asso/modules
+                icon: icon-suitcase
             side-menu-item4:
                 label: Persone
                 url: martinimultimedia/asso/people
@@ -30,6 +40,10 @@ navigation:
                 label: Ateco
                 url: martinimultimedia/asso/atecos
                 icon: icon-sitemap
+            side-menu-item6:
+                label: Calendario
+                url: martinimultimedia/asso/calendars
+                icon: icon-calendar
 permissions:
     martinimultimedia.asso:
         tab: 'martinimultimedia.asso::lang.plugin.name'

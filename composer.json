@@ -1,9 +1,8 @@
 {
     "name": "martinimultimedia/asso",
-    "description": "Gestio\b\b\b",
+    "description": "Gestio",
     "require": {
-        "phpoffice/phpspreadsheet": "^1.9",
-        "alexeyco/spinner": "^1.0"
+        "phpoffice/phpspreadsheet": "^1.9"
     },
     "authors": [
         {

@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        invisible: true
+    name:
+        label: 'martinimultimedia.asso::lang.lang.plugin.module.name'
+        type: text
+        searchable: true
+        sortable: true
+    teacher:
+        label: 'martinimultimedia.asso::lang.lang.plugin.module.teacher'
+        type: text
+        searchable: true
+        sortable: true
+    hours:
+        label: 'martinimultimedia.asso::lang.lang.plugin.module.hours'
+        type: number
+        searchable: false
+        sortable: true
+    credits:
+        label: 'martinimultimedia.asso::lang.lang.plugin.module.credits'
+        type: number
+        sortable: true

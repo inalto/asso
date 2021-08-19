@@ -1,0 +1,10 @@
+name: Modules
+form: $/martinimultimedia/asso/models/module/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Module
+defaultRedirect: martinimultimedia/asso/modules
+create:
+    redirect: 'martinimultimedia/asso/modules/update/:id'
+    redirectClose: martinimultimedia/asso/modules
+update:
+    redirect: martinimultimedia/asso/modules
+    redirectClose: martinimultimedia/asso/modules

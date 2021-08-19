@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Calendar
+
+# Model Form Field configuration
+form: $/martinimultimedia/asso/models/calendar/fields.yaml
+
+# Model Class name
+modelClass: Martinimultimedia\Asso\Models\Calendar
+
+# Default redirect location
+defaultRedirect: martinimultimedia/asso/calendars
+
+# Create page
+create:
+    title: Create Calendar
+    redirect: martinimultimedia/asso/calendars/update/:id
+    redirectClose: martinimultimedia/asso/calendars
+
+# Update page
+update:
+    title: Edit Calendar
+    redirect: martinimultimedia/asso/calendars
+    redirectClose: martinimultimedia/asso/calendars
+
+# Preview page
+preview:
+    title: Preview Calendar

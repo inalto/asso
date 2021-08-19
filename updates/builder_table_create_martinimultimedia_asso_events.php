@@ -12,8 +12,21 @@ class BuilderTableCreateMartinimultimediaAssoEvents extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
             $table->integer('training_id')->unsigned();
-            $table->string('name')->nullable();
-            $table->text('description')->nullable();
+            $table->string('subject')->nullable();
+            $table->string('location')->nullable();
+            $table->boolean('all_day')->default(false);
+            $table->boolean('reminder')->default(false);
+            $table->integer('priority')->unsigned();
+            $table->integer('recurrence')->unsigned()->default(0);
+            $table->string('recurrence_rule')->nullable();
+            $table->integer('every')->unsigned();
+
+            $table->timestamp('recurrence_start_date')->nullable();
+            $table->timestamp('recurrence_end_date')->nullable();
+
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
+            
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
         });

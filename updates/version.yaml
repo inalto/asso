@@ -21,3 +21,12 @@
 1.0.8:
     - 'Created table martinimultimedia_asso_events'
     - builder_table_create_martinimultimedia_asso_events.php
+1.0.9:
+    - 'Created table martinimultimedia_asso_modules'
+    - builder_table_create_martinimultimedia_asso_modules.php
+1.0.10:
+    - 'Updated table martinimultimedia_asso_modules'
+    - builder_table_update_martinimultimedia_asso_modules.php
+1.0.11:
+    - 'Updated table martinimultimedia_asso_modules'
+    - builder_table_update_martinimultimedia_asso_modules_2.php

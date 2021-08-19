@@ -1,0 +1,21 @@
+columns:
+    id:
+        label: id
+        type: number
+    training_id:
+        label: 'training id'
+        type: number
+    subject:
+        label: Evento
+        type: text
+        searchable: true
+    start_time:
+        label: inizio
+        type: datetime
+        searchable: true
+        sortable: true
+    end_time:
+        label: fine
+        type: datetime
+        searchable: true
+        sortable: true

@@ -1,0 +1,13 @@
+fields:
+    id:
+        label: ID
+        span: full
+        disabled: true
+        type: text
+    event_id:
+        label: 'Record finder'
+        nameFrom: name
+        descriptionFrom: description
+        list: $/martinimultimedia/asso/models/training/columns.yaml
+        span: auto
+        type: recordfinder
