@@ -12,7 +12,7 @@ navigation:
         permissions:
             - martinimultimedia.asso
         sideMenu:
-            side-menu-item7:
+            side-menu-dashboard:
                 label: Cruscotto
                 url: martinimultimedia/asso/companies/dashboard
                 icon: icon-dashboard
@@ -25,11 +25,15 @@ navigation:
                 url: martinimultimedia/asso/services
                 icon: icon-sitemap
             side-menu-item3:
-                label: Formazione
+                label: Corsi
                 url: martinimultimedia/asso/trainings
                 icon: icon-certificate
+            side-menu-item7:
+                label: Docenti
+                url: martinimultimedia/asso/teachers
+                icon: icon-university
             side-menu-item8:
-                label: 'martinimultimedia.asso::lang.lang.plugin.module.menu'
+                label: Moduli
                 url: martinimultimedia/asso/modules
                 icon: icon-suitcase
             side-menu-item4:

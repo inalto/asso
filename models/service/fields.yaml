@@ -6,7 +6,11 @@ fields:
         comment: 'Nome del servizio'
     description:
         label: Descrizione
-        size: large
+        size: small
         span: full
         type: richeditor
         comment: 'Descrizione del servizio'
+    color:
+        label: 'martinimultimedia.asso::lang.lang.plugin.service.color'
+        span: auto
+        type: colorpicker

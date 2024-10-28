@@ -1,0 +1,10 @@
+name: Teachers
+form: $/martinimultimedia/asso/models/teacher/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Teacher
+defaultRedirect: martinimultimedia/asso/teachers
+create:
+    redirect: 'martinimultimedia/asso/teachers/update/:id'
+    redirectClose: martinimultimedia/asso/teachers
+update:
+    redirect: martinimultimedia/asso/teachers
+    redirectClose: martinimultimedia/asso/teachers

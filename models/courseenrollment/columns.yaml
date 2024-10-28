@@ -1,0 +1,13 @@
+columns:
+    created_at:
+        label: created_at
+        type: datetime
+    course_id:
+        label: course_id
+        type: number
+    person_id:
+        label: person_id
+        type: number
+    enrollment_date:
+        label: enrollment_date
+        type: text

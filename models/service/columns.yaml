@@ -9,3 +9,7 @@ columns:
         type: text
         searchable: true
         sortable: true
+    color:
+        label: 'martinimultimedia.asso::lang.service.color'
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/service/_color.htm

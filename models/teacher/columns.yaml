@@ -1,0 +1,20 @@
+columns:
+    first_name:
+        label: Nome
+        type: text
+        searchable: true
+    last_name:
+        label: Cognome
+        type: text
+        searchable: true
+    phone:
+        label: Telefono
+        type: text
+        searchable: true
+    email:
+        label: Email
+        type: text
+        searchable: true
+    id:
+        label: id
+        type: number

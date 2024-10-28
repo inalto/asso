@@ -6,18 +6,19 @@
             'label' => 'Gestione Asso',
         ],
     ],
-    'lang' => [
-        'plugin' => [
-            'module' => [
-                'name' => 'Nome',
-                'slug' => 'Url alias',
-                'description' => 'Descrizione',
-                'attachments' => 'Allegati',
-                'menu' => 'Moduli',
-                'teacher' => 'Docenti',
-                'hours' => 'Ore',
-                'credits' => 'Crediti',
-            ],
-        ],
+    'module' => [
+        'name' => 'Nome',
+        'slug' => 'Url alias',
+        'description' => 'Descrizione',
+        'attachments' => 'Allegati',
+        'menu' => 'Moduli',
+        'teacher' => 'Docenti',
+        'hours' => 'Ore',
+        'credits' => 'Crediti',
     ],
+    'service' => [
+        'color' => 'Colore',
+    ],
+
+
 ];

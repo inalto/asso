@@ -3,7 +3,7 @@ fields:
         label: Nome
         span: full
         type: text
-        comment: 'Ragione sociale dell''azienda'
+        comment: "Ragione sociale dell'azienda"
     cf:
         label: CF
         span: auto
@@ -15,7 +15,7 @@ fields:
         type: text
         comment: 'Partita iva'
     sdi:
-        label: Cod. SDI
+        label: 'Cod. SDI'
         span: auto
         type: text
         comment: 'Codice destinatario'
@@ -25,7 +25,7 @@ fields:
         type: text
         comment: 'Posta certificata'
     umes:
-        label: Cod UMES
+        label: 'Cod UMES'
         span: auto
         type: text
         comment: 'Unione dei mestieri'
@@ -43,7 +43,7 @@ fields:
         type: text
     note:
         label: Note
-        size: large
+        size: small
         span: full
         type: richeditor
     ateco:

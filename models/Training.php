@@ -24,4 +24,20 @@ class Training extends Model
      */
     public $rules = [
     ];
+
+    public $belongsToMany = [
+        'teachers' => [
+            'MartiniMultimedia\Asso\Models\Teacher',
+            'table' => 'martinimultimedia_asso_teacher_training',
+            'order' => 'last_name'
+        ],
+        'enrollments' => [
+            'MartiniMultimedia\Asso\Models\Person',
+            'table' => 'martinimultimedia_asso_course_enrollments',
+            'order' => 'last_name'
+        ]
+    ];
+    public $attachOne = [
+        'template' => 'System\Models\File'
+    ];
 }

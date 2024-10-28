@@ -1,0 +1,19 @@
+fields:
+    course_id:
+        label: Corso
+        nameFrom: name
+        descriptionFrom: description
+        list: $/martinimultimedia/asso/models/training/columns.yaml
+        span: auto
+        type: recordfinder
+    person_id:
+        label: Partecipante
+        nameFrom: name
+        descriptionFrom: description
+        list: $/martinimultimedia/asso/models/person/columns.yaml
+        span: auto
+        type: recordfinder
+    enrollment_date:
+        label: 'Enrollment date'
+        span: auto
+        type: datepicker

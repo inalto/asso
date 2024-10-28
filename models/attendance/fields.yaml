@@ -1,0 +1,17 @@
+fields:
+    module_id:
+        label: Modulo
+        nameFrom: name
+        descriptionFrom: description
+        list: $/martinimultimedia/asso/models/module/columns.yaml
+        span: auto
+        type: recordfinder
+    attended_date:
+        label: Data
+        mode: datetime
+        span: auto
+        type: datepicker
+    status:
+        label: Presente
+        span: auto
+        type: checkbox

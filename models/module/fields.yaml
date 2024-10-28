@@ -1,22 +1,30 @@
 fields:
     name:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.name'
+        label: 'martinimultimedia.asso::lang.module.name'
         span: auto
         type: text
     slug:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.slug'
+        label: 'martinimultimedia.asso::lang.module.slug'
         span: auto
         preset:
             field: name
             type: slug
         type: text
+    hours:
+        label: Ore
+        span: auto
+        type: number
+    credits:
+        label: 'Crediti formativi'
+        span: auto
+        type: number
     description:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.description'
-        size: large
+        label: 'martinimultimedia.asso::lang.module.description'
+        size: small
         span: full
         type: richeditor
     attachments:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.attachments'
+        label: 'martinimultimedia.asso::lang.module.attachments'
         mode: file
         useCaption: true
         thumbOptions:
@@ -24,3 +32,11 @@ fields:
             extension: auto
         span: full
         type: fileupload
+    training:
+        label: Corso
+        nameFrom: name
+        descriptionFrom: ''
+        title: 'Corso di appartenenza'
+        list: $/martinimultimedia/asso/models/training/columns.yaml
+        span: auto
+        type: recordfinder

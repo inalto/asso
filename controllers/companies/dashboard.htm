@@ -1,18 +1,49 @@
 <?php Block::put('breadcrumb') ?>
-    <ul>
-        <li><a href="<?= Backend::url('martinimultimedia/asso/companies') ?>">Asso</a></li>
-        <li><?= e($this->pageTitle) ?></li>
-    </ul>
+<ul>
+    <li><a href="<?= Backend::url('martinimultimedia/asso/companies') ?>">Asso</a></li>
+    <li>
+        <?= e($this->pageTitle) ?>
+    </li>
+</ul>
 <?php Block::endPut() ?>
 
+<div class="grid-3">
+    <div class="card">
+        <div class="text-sm">Aziende registrate:</div>
+        <div class="text-3xl center">
+            <?php echo $aziende ?>
+        </div>
+    </div>
+    <div class="card">
+        <div class="text-sm">Persone:</div>
+        <div class="text-3xl center">
+            <?php echo $people ?>
+        </div>
 
-<p><strong>Aziende registrate:</strong> <?php echo $aziende ?></p>
-<p><strong>Persone:</strong> <?php echo $people ?></p>
-<p><strong>Iscritti CNA:</strong> <?php echo $people_cna ?></p>
+    </div>
+    <div class="card">
+        <div class="text-sm">Iscritti CNA:</div>
+        <div class="text-3xl center">
+            <?php echo $people_cna ?>
+        </div>
+    </div>
+</div>
 <!--
 <p>
     <a href="<?= Backend::url('martinimultimedia/asso/companies') ?>" class="btn btn-default oc-icon-chevron-left">
         <?= e(trans('backend::lang.form.return_to_list')) ?>
     </a>
 </p>
+<input placeholder="Cerca..." type="text" name="listToolbarSearch[term]" value="" data-request="listToolbarSearch::onSubmit" data-track-input="" data-load-indicator="" data-load-indicator-opaque="" class="form-control growable" autocomplete="off" data-search-input="">
 -->
+<?= Form::open(['class' => 'my-4 search-input-container storm-icon-pseudo']) ?>
+<input type="text" name="search" placeholder="Cerca azienda" class="form-control" data-request="onSearch"
+    data-track-input="" data-load-indicator="" data-load-indicator-opaque="" autocomplete="off"
+    value="<?php echo $search ?>" />
+<?= Form::close() ?>
+
+<div id="searchList">
+
+    <?= $this->makePartial('searchList') ?>
+
+</div>

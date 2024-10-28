@@ -1,0 +1,19 @@
+columns:
+    id:
+        label: id
+        type: number
+    updated_at:
+        label: updated_at
+        type: datetime
+    module_id:
+        label: module_id
+        type: number
+    attended_date:
+        label: attended_date
+        type: text
+    status:
+        label: status
+        type: text
+    person_id:
+        label: person_id
+        type: number

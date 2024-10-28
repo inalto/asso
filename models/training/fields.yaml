@@ -6,17 +6,42 @@ fields:
     slug:
         label: Alias
         span: auto
-        type: text
-    description:
-        label: Descrizione
-        size: large
-        span: full
-        type: richeditor
-    teacher:
-        label: Docente
-        span: auto
+        preset:
+            field: name
+            type: slug
         type: text
     hours:
         label: Ore
         span: auto
         type: number
+    template:
+        label: Template
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload
+    description:
+        label: Descrizione
+        size: large
+        span: full
+        type: richeditor
+    teachers:
+        label: Docenti
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
+    enrollments:
+        label: Iscritti
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
+    duration:
+        label: Scadenza
+        span: auto
+        type: number
+        comment: 'Scade tra tot anni'

@@ -1,4 +1,4 @@
-_dev/scheduler/.cache
+_dev/
 vendor/
 
-console/imports/ELENCO UNICO V3.xlsx
+console/imports

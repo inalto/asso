@@ -1,0 +1,10 @@
+name: Attendance
+form: $/martinimultimedia/asso/models/attendance/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Attendance
+defaultRedirect: martinimultimedia/asso/attendance
+create:
+    redirect: 'martinimultimedia/asso/attendance/update/:id'
+    redirectClose: martinimultimedia/asso/attendance
+update:
+    redirect: martinimultimedia/asso/attendance
+    redirectClose: martinimultimedia/asso/attendance

@@ -5,21 +5,22 @@ columns:
         searchable: true
         invisible: true
     name:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.name'
+        label: 'martinimultimedia.asso::lang.module.name'
         type: text
         searchable: true
         sortable: true
     teacher:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.teacher'
+        label: 'martinimultimedia.asso::lang.module.teacher'
         type: text
         searchable: true
         sortable: true
     hours:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.hours'
+        label: 'martinimultimedia.asso::lang.module.hours'
         type: number
         searchable: false
         sortable: true
     credits:
-        label: 'martinimultimedia.asso::lang.lang.plugin.module.credits'
+        label: 'martinimultimedia.asso::lang.module.credits'
         type: number
         sortable: true
+ 

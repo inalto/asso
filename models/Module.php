@@ -25,6 +25,18 @@ class Module extends Model
     public $rules = [
     ];
 
+    /**
+     * Belongs to Training
+     */
+
+     public $belongsTo = [
+        'training' => [
+            'MartiniMultimedia\Asso\Models\Training',
+            'key' => 'training_id',
+            'otherKey' => 'id',
+            'order' => 'name'
+        ]
+    ];
     public $attachMany = [
         'attachments' => 'System\Models\File'
     ];

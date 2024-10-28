@@ -1,0 +1,18 @@
+teachers:
+  label: Docenti
+  view:
+    toolbarButtons: true
+    showCheckboxes: true
+    list: $/martinimultimedia/asso/models/teacher/columns.yaml
+  manage:
+    form: $/martinimultimedia/asso/models/teacher/fields.yaml
+    recordsPerPage: 10
+enrollments:
+  label: Iscritti
+  view:
+    toolbarButtons: true
+    showCheckboxes: true
+    list: $/martinimultimedia/asso/models/person/columns.yaml
+  manage:
+    form: $/martinimultimedia/asso/models/person/fields.yaml
+    recordsPerPage: 10

@@ -11,6 +11,6 @@ fields:
         comment: 'Codice mnemonico separato da punti'
     description:
         label: Descrizione
-        size: large
+        size: small
         span: full
         type: textarea

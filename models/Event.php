@@ -14,9 +14,9 @@ class Event extends Model
 
     /**
      * @var array Guarded fields
-     
+     */
     protected $guarded = ['*'];
-*/
+
     /**
      * @var array Fillable fields
      
