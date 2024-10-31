@@ -1,0 +1,29 @@
+columns:
+    first_name:
+        label: Cognome
+        type: text
+        searchable: true
+        sortable: true
+    last_name:
+        label: Nome
+        type: text
+        searchable: true
+        sortable: true
+    cf:
+        label: C.F.
+        type: text
+        searchable: true
+        sortable: true
+  
+    company:
+        label: Azienda
+        type: text
+        searchable: true
+        sortable: true
+        select: name
+        relation: company
+    cna:
+        label: CNA
+        type: inetis-list-switch
+        searchable: true
+        sortable: true

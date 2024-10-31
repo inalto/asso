@@ -3,16 +3,25 @@ teachers:
   view:
     toolbarButtons: true
     showCheckboxes: true
+    showSearch: true
+    showSorting: true
     list: $/martinimultimedia/asso/models/teacher/columns.yaml
   manage:
     form: $/martinimultimedia/asso/models/teacher/fields.yaml
+    showSearch: true
+    showSorting: true
     recordsPerPage: 10
 enrollments:
   label: Iscritti
+  searchable: true
+  filter: $/martinimultimedia/asso/models/person/filters.yaml
   view:
     toolbarButtons: true
     showCheckboxes: true
-    list: $/martinimultimedia/asso/models/person/columns.yaml
+    showSearch: true
+    showSorting: true
+    list: $/martinimultimedia/asso/models/person/columns_training_form.yaml
   manage:
+    showSearch: true
     form: $/martinimultimedia/asso/models/person/fields.yaml
     recordsPerPage: 10

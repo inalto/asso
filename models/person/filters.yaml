@@ -1,0 +1,5 @@
+scopes:
+  name:
+    label: User
+    type: text
+    conditions: first_name like %:value% or last_name like %:value% or cf like %:value%
