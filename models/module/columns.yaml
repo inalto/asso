@@ -23,4 +23,8 @@ columns:
         label: 'martinimultimedia.asso::lang.module.credits'
         type: number
         sortable: true
- 
+    actions:
+        clickable: false
+        label: 'martinimultimedia.asso::lang.module.actions'
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/module/_actions_column.htm

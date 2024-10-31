@@ -28,6 +28,12 @@ fields:
         size: large
         span: full
         type: richeditor
+    modules:
+        label: Moduli
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation
     teachers:
         label: Docenti
         nameFrom: name

@@ -25,7 +25,12 @@ class Training extends Model
     public $rules = [
     ];
 
+    public $hasMany = [
+        'modules' => 'MartiniMultimedia\Asso\Models\Module'
+    ];
+
     public $belongsToMany = [
+        
         'teachers' => [
             'MartiniMultimedia\Asso\Models\Teacher',
             'table' => 'martinimultimedia_asso_teacher_training',
