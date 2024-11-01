@@ -2,7 +2,7 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use MartiniMultimedia\Asso\Widgets\Scheduler;
+use MartiniMultimedia\Asso\Widgets\Fullcalendar;
 
 /**
  * Calendars Back-end Controller
@@ -22,7 +22,7 @@ class Calendars extends Controller
     {
         parent::__construct();
 
-        $scheduler = new Scheduler($this);
+        $scheduler = new Fullcalendar($this);
         $scheduler->alias = 'scheduler';
         $scheduler->bindToController();
 

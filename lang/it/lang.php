@@ -19,6 +19,11 @@
     'service' => [
         'color' => 'Colore',
     ],
-
-
+    'martinimultimedia' => [
+        'asso::lang' => [
+            'module' => [
+                'date' => 'Data',
+            ],
+        ],
+    ],
 ];

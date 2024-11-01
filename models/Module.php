@@ -25,6 +25,8 @@ class Module extends Model
     public $rules = [
     ];
 
+    public $fillable = ['name', 'slug', 'hours','date','credits','training_id', 'description'];
+
     /**
      * Belongs to Training
      */

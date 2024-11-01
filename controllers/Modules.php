@@ -2,7 +2,9 @@
 
 use Backend\Classes\Controller;
 use BackendMenu;
-
+use Illuminate\Http\Request;
+use MartiniMultimedia\Asso\Models\Module;
+use Carbon\Carbon;
 class Modules extends Controller
 {
     public $implement = [        'Backend\Behaviors\ListController',        'Backend\Behaviors\FormController'    ];
@@ -14,5 +16,33 @@ class Modules extends Controller
     {
         parent::__construct();
         BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-item8');
+    }
+
+
+    public function dates(Request $request)
+    {
+        // Extract dates from FullCalendar's request
+        $startDate = $request->query('start');
+        $endDate = $request->query('end');
+
+        // Query scheduled course modules within this date range
+        $modules = Module::whereBetween('date', [$startDate, $endDate])->get();
+
+        // Format the data for FullCalendar
+        $events = $modules->map(function ($module) {
+            $startDateTime = Carbon::parse($module->date . ' ' . $module->start_time);
+            $endDateTime = $startDateTime->copy()->addHours($module->duration_hours);
+
+            return [
+                'title' => $module->name,
+                'start' => $startDateTime->toIso8601String(),
+                'end' => $endDateTime->toIso8601String(),
+                'description' => $module->description,
+           //     'color' => $module->color,
+            ];
+        });
+
+        // Return the response in JSON format
+        return response()->json($events);
     }
 }
