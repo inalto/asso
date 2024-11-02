@@ -1,29 +1,20 @@
-<?php return [
-    'plugin' => [
-        'name' => 'Asso',
-        'description' => 'Gestione servizi e corsi',
-        'permission' => [
-            'label' => 'Gestione Asso',
-        ],
+<?php
+return [
+    "module" => [
+        "attachments" => "Allegati",
+        "credits" => "Crediti",
+        "date" => "Data",
+        "description" => "Descrizione",
+        "hours" => "Ore",
+        "menu" => "Moduli",
+        "name" => "Nome",
+        "slug" => "Url alias",
+        "teacher" => "Docenti"
     ],
-    'module' => [
-        'name' => 'Nome',
-        'slug' => 'Url alias',
-        'description' => 'Descrizione',
-        'attachments' => 'Allegati',
-        'menu' => 'Moduli',
-        'teacher' => 'Docenti',
-        'hours' => 'Ore',
-        'credits' => 'Crediti',
+    "plugin" => [
+        "description" => "Gestione servizi e corsi",
+        "name" => "Asso",
+        "permission" => ["label" => "Gestione Asso"]
     ],
-    'service' => [
-        'color' => 'Colore',
-    ],
-    'martinimultimedia' => [
-        'asso::lang' => [
-            'module' => [
-                'date' => 'Data',
-            ],
-        ],
-    ],
+    "service" => ["color" => "Colore"]
 ];

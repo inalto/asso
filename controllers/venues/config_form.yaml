@@ -1,0 +1,10 @@
+name: Venues
+form: $/martinimultimedia/asso/models/venue/fields.yaml
+modelClass: MoonWalkerz\Events\Models\Venue
+defaultRedirect: martinimultimedia/asso/venues
+create:
+    redirect: 'martinimultimedia/asso/venues/update/:id'
+    redirectClose: martinimultimedia/asso/venues
+update:
+    redirect: martinimultimedia/asso/venues
+    redirectClose: martinimultimedia/asso/venues

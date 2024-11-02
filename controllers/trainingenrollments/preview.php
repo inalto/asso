@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('martinimultimedia/asso/courseenrollments') ?>">CourseEnrollment</a></li>
+        <li><a href="<?= Backend::url('martinimultimedia/asso/trainingenrollments') ?>">CourseEnrollment</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -16,7 +16,7 @@
 <?php endif ?>
 
 <p>
-    <a href="<?= Backend::url('martinimultimedia/asso/courseenrollments') ?>" class="btn btn-default oc-icon-chevron-left">
+    <a href="<?= Backend::url('martinimultimedia/asso/trainingenrollments') ?>" class="btn btn-default oc-icon-chevron-left">
         <?= e(trans('backend::lang.form.return_to_list')) ?>
     </a>
 </p>

@@ -26,18 +26,18 @@ class Modules extends Controller
         $endDate = $request->query('end');
 
         // Query scheduled course modules within this date range
-        $modules = Module::whereBetween('date', [$startDate, $endDate])->get();
+        $modules = Module::whereBetween('date', [$startDate, $endDate])->with('training')->get();
 
         // Format the data for FullCalendar
         $events = $modules->map(function ($module) {
             $startDateTime = Carbon::parse($module->date . ' ' . $module->start_time);
-            $endDateTime = $startDateTime->copy()->addHours($module->duration_hours);
+            $endDateTime = $startDateTime->copy()->addHours($module->hours);
 
             return [
-                'title' => $module->name,
+                'title' => $module->training->name,
                 'start' => $startDateTime->toIso8601String(),
                 'end' => $endDateTime->toIso8601String(),
-                'description' => $module->description,
+                'description' => $module->name,
            //     'color' => $module->color,
             ];
         });

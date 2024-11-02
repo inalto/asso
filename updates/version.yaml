@@ -66,3 +66,21 @@ v1.0.22:
 v1.0.23:
     - 'Updated table martinimultimedia_asso_trainings'
     - builder_table_update_martinimultimedia_asso_trainings_2.php
+v1.0.24:
+    - 'Updated table martinimultimedia_asso_course_enrollments'
+    - builder_table_update_martinimultimedia_asso_course_enrollments_2.php
+v1.0.25:
+    - 'Updated table martinimultimedia_asso_trainings'
+    - builder_table_update_martinimultimedia_asso_trainings_3.php
+v1.0.26:
+    - 'Updated table martinimultimedia_asso_course_enrollments'
+    - builder_table_update_martinimultimedia_asso_module_enrollments.php
+v1.0.27:
+    - 'Updated table martinimultimedia_asso_module_enrollments'
+    - builder_table_update_martinimultimedia_asso_module_enrollments_2.php
+v1.0.28:
+    - 'Updated table martinimultimedia_asso_module_enrollments'
+    - builder_table_update_martinimultimedia_asso_training_enrollments.php
+v1.0.29:
+    - 'Created table for venues'
+    - builder_table_create_martinimultimedia_asso_venues.php

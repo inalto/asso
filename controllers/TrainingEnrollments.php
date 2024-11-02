@@ -4,7 +4,7 @@ use Backend;
 use BackendMenu;
 use Backend\Classes\Controller;
 
-class CourseEnrollments extends Controller
+class TrainingEnrollments extends Controller
 {
     public $implement = [
         \Backend\Behaviors\FormController::class,

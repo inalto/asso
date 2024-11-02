@@ -1,14 +1,15 @@
 var calendarOptions = {
     initialView: 'dayGridMonth',
+    locale: 'it',
     headerToolbar: {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
     views: {
-        dayGridMonth: { buttonText: 'Month' },
-        timeGridWeek: { buttonText: 'Week' },
-        timeGridDay: { buttonText: 'Day' }
+        dayGridMonth: { buttonText: 'Mese' },
+        timeGridWeek: { buttonText: 'Settimana' },
+        timeGridDay: { buttonText: 'Giorno' }
     },
     events: '/api/dates',
 };
@@ -25,18 +26,3 @@ if (oc.useTurbo && oc.useTurbo()) {
     calendar.render();
 }
 
-// Function to fetch calendar events
-function fetchCalendarEvents(fetchInfo, successCallback, failureCallback) {
-    fetch('/api/dates', {
-        method: 'GET'
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Pass the events to FullCalendar
-        successCallback(data);
-    })
-    .catch(error => {
-        console.error('Error fetching calendar events:', error);
-        failureCallback(error);
-    });
-}

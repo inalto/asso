@@ -1,0 +1,10 @@
+name: TrainingEnrollment
+form: $/martinimultimedia/asso/models/trainingenrollment/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\TrainingEnrollment
+defaultRedirect: martinimultimedia/asso/trainingenrollments
+create:
+    redirect: 'martinimultimedia/asso/trainingenrollments/update/:id'
+    redirectClose: martinimultimedia/asso/trainingenrollments
+update:
+    redirect: martinimultimedia/asso/trainingenrollments
+    redirectClose: martinimultimedia/asso/trainingenrollments

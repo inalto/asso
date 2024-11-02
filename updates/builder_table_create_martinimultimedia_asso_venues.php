@@ -1,0 +1,30 @@
+<?php namespace MartiniMultimedia\Asso\Updates;
+
+use Schema;
+use October\Rain\Database\Updates\Migration;
+
+class BuilderTableCreateMartiniMultimediaAssoVenues extends Migration
+{
+    public function up()
+    {
+        Schema::dropIfExists('martinimultimedia_asso_venues');
+        Schema::create('martinimultimedia_asso_venues', function($table)
+        {
+            $table->engine = 'InnoDB';
+            $table->increments('id')->unsigned();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('deleted_at')->nullable();
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('excerpt')->nullable();
+            $table->text('description')->nullable();
+            $table->text('points')->nullable();
+        });
+    }
+    
+    public function down()
+    {
+        Schema::dropIfExists('martinimultimedia_asso_venues');
+    }
+}

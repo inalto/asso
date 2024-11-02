@@ -1,6 +1,6 @@
 <div data-control="toolbar">
     <a
-        href="<?= Backend::url('martinimultimedia/asso/courseenrollments/create') ?>"
+        href="<?= Backend::url('martinimultimedia/asso/trainingenrollments/create') ?>"
         class="btn btn-primary oc-icon-plus">
         <?= e(trans('backend::lang.form.create')) ?>
     </a>

@@ -26,7 +26,7 @@ class Calendars extends Controller
         $scheduler->alias = 'scheduler';
         $scheduler->bindToController();
 
-        BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-item');
+        BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-item6');
     }
 
     public function index()
