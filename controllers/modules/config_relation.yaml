@@ -1,0 +1,14 @@
+attendees:
+  label: Presenze
+  searchable: true
+  filter: $/martinimultimedia/asso/models/person/filters.yaml
+  view:
+    toolbarButtons: true
+    showCheckboxes: false
+    showSearch: true
+    showSorting: true
+    list: $/martinimultimedia/asso/models/person/columns_training_form.yaml
+  manage:
+    showSearch: true
+    form: $/martinimultimedia/asso/models/person/fields.yaml
+    recordsPerPage: 10

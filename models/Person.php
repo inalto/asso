@@ -28,9 +28,29 @@ class Person extends Model
     public $rules = [
     ];
 
+
+
     public $belongsTo = [
         'company' => 'MartiniMultimedia\Asso\Models\Company'
     ];
+
+    public $belongsToMany = [
+
+        'trainings' => [
+            'MartiniMultimedia\Asso\Models\Training',
+            'table' => 'martinimultimedia_asso_training_enrollments',
+            'order' => 'name'
+        ],
+
+        'modules' => [
+            'MartiniMultimedia\Asso\Models\Module',
+            'table' => 'martinimultimedia_asso_module_attendance',
+ //           'pivot' => ['attended'],
+  //          'pivotModel' => 'MartiniMultimedia\Asso\Models\ModuleAttendance',
+            'order' => 'last_name' 
+        ]
+    ];
+
     public $attachOne = [
         'image' => 'System\Models\File'
     ];

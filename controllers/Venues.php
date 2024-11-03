@@ -17,6 +17,6 @@ class Venues extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('MartiniMultimedia.Asso', 'events-item', 'side-event-venue');
+        BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-item9');
     }
 }

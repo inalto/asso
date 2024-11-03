@@ -84,3 +84,12 @@ v1.0.28:
 v1.0.29:
     - 'Created table for venues'
     - builder_table_create_martinimultimedia_asso_venues.php
+v1.0.30:
+    - 'Updated table martinimultimedia_asso_trainings'
+    - builder_table_update_martinimultimedia_asso_trainings_4.php
+v1.0.31:
+    - 'Updated table martinimultimedia_asso_attendance'
+    - builder_table_update_martinimultimedia_asso_module_attendances.php
+v1.0.32:
+    - 'Updated table martinimultimedia_asso_module_attendances'
+    - builder_table_update_martinimultimedia_asso_module_attendances_2.php

@@ -1,6 +1,6 @@
 columns:
     name:
-        label: 'martinimultimedia.asso::lang.list.name'
+        label: 'martinimultimedia.asso::lang.venue.name'
         type: text
         searchable: true
         sortable: true

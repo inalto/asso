@@ -1,0 +1,10 @@
+columns:
+    last_name:
+        label: 'Cognome'
+    first_name:
+        label: 'Nome'
+    attended:
+        label: 'Presente'
+        type: listswitch
+        relation: pivot
+        sortable: false

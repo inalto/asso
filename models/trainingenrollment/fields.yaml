@@ -14,6 +14,6 @@ fields:
         span: auto
         type: recordfinder
     enrollment_date:
-        label: 'Enrollment date'
+        label: 'Data iscrizione'
         span: auto
         type: datepicker

@@ -10,6 +10,21 @@ fields:
             field: name
             type: slug
         type: text
+    training:
+        label: Corso
+        nameFrom: name
+        descriptionFrom: ''
+        title: 'Corso di appartenenza'
+        list: $/martinimultimedia/asso/models/training/columns.yaml
+        span: auto
+        type: recordfinder
+    venue:
+        label: Aula
+        span: auto
+        nameFrom: name
+        descriptionFrom: description
+        list: $/martinimultimedia/asso/models/venue/columns.yaml
+        type: recordfinder
     date:
         label: Data
         span: auto
@@ -20,14 +35,6 @@ fields:
         label: Ore
         span: auto
         type: number
-    training:
-        label: Corso
-        nameFrom: name
-        descriptionFrom: ''
-        title: 'Corso di appartenenza'
-        list: $/martinimultimedia/asso/models/training/columns.yaml
-        span: auto
-        type: recordfinder
     credits:
         label: 'Crediti formativi'
         span: auto
@@ -46,3 +53,9 @@ fields:
             extension: auto
         span: full
         type: fileupload
+    attendees:
+        label: Iscritti
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation

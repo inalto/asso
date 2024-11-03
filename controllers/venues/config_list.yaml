@@ -1,6 +1,6 @@
-list: $/moonwalkerz/asso/models/venue/columns.yaml
-modelClass: MoonWalkerz\Events\Models\Venue
-title: Venues
+list: $/martinimultimedia/asso/models/venue/columns.yaml
+modelClass: MartiniMultimedia\Asso\Models\Venue
+title: Aule
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -12,4 +12,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'moonwalkerz/asso/venues/update/:id'
+recordUrl: 'martinimultimedia/asso/venues/update/:id'

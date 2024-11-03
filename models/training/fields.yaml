@@ -51,3 +51,9 @@ fields:
         span: auto
         type: number
         comment: 'Scade tra tot anni'
+    color:
+        label: 'martinimultimedia.asso::lang.service.color'
+        span: auto
+        allowEmpty: true
+        allowCustom: true
+        type: colorpicker

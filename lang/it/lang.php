@@ -1,5 +1,15 @@
 <?php
 return [
+    "form" => [
+        "add" => "Aggiungi",
+        "attachments" => "Allegati",
+        "description" => "Descrizione",
+        "excerpt" => "Estratto",
+        "images" => "Immagini",
+        "markers" => "Posizione",
+        "name" => "Nome",
+        "slug" => "Alias"
+    ],
     "module" => [
         "attachments" => "Allegati",
         "credits" => "Crediti",
@@ -16,5 +26,6 @@ return [
         "name" => "Asso",
         "permission" => ["label" => "Gestione Asso"]
     ],
-    "service" => ["color" => "Colore"]
+    "service" => ["color" => "Colore"],
+    "venue" => ["name" => "Nome"]
 ];

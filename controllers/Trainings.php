@@ -20,4 +20,15 @@ class Trainings extends Controller
         parent::__construct();
         BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-item3');
     }
+
+    public function relationExtendPivotQuery($query, $field, $model)
+{
+    if ($field === 'attendees') {
+        $training = $model->training;
+        if ($training) {
+            $enrolledPersonIds = $training->enrollments->pluck('id')->toArray();
+            $query->whereIn('id', $enrolledPersonIds);
+        }
+    }
+}
 }

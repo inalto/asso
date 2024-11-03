@@ -24,18 +24,22 @@ navigation:
                 label: Servizi
                 url: martinimultimedia/asso/services
                 icon: icon-sitemap
+            side-menu-item9:
+                label: Aule
+                url: martinimultimedia/asso/venues
+                icon: icon-home
             side-menu-item3:
                 label: Corsi
                 url: martinimultimedia/asso/trainings
                 icon: icon-certificate
-            side-menu-item7:
-                label: Docenti
-                url: martinimultimedia/asso/teachers
-                icon: icon-university
             side-menu-item8:
                 label: Moduli
                 url: martinimultimedia/asso/modules
                 icon: icon-suitcase
+            side-menu-item7:
+                label: Docenti
+                url: martinimultimedia/asso/teachers
+                icon: icon-university
             side-menu-item4:
                 label: Persone
                 url: martinimultimedia/asso/people

@@ -37,6 +37,21 @@ class Module extends Model
             'key' => 'training_id',
             'otherKey' => 'id',
             'order' => 'name'
+        ],
+        'venue' => [
+            'MartiniMultimedia\Asso\Models\Venue',
+            'key' => 'venue_id',
+            'otherKey' => 'id',
+            'order' => 'name'
+        ],
+    ];
+    public $belongsToMany = [
+        'attendees' => [
+            'MartiniMultimedia\Asso\Models\Person',
+            'table' => 'martinimultimedia_asso_module_attendances',
+            'pivot' => ['attended'],
+            'pivotModel' => 'MartiniMultimedia\Asso\Models\ModuleAttendance',
+            'order' => 'last_name'
         ]
     ];
     public $attachMany = [

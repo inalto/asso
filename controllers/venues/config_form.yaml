@@ -1,6 +1,6 @@
-name: Venues
+name: Aula
 form: $/martinimultimedia/asso/models/venue/fields.yaml
-modelClass: MoonWalkerz\Events\Models\Venue
+modelClass: MartiniMultimedia\Asso\Models\Venue
 defaultRedirect: martinimultimedia/asso/venues
 create:
     redirect: 'martinimultimedia/asso/venues/update/:id'

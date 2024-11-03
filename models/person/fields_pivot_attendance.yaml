@@ -1,0 +1,4 @@
+fields:
+    attended:
+        label: 'Presente'
+        type: inetis-list-switch

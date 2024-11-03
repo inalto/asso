@@ -38,7 +38,7 @@ class Training extends Model
         ],
         'enrollments' => [
             'MartiniMultimedia\Asso\Models\Person',
-            'table' => 'martinimultimedia_asso_course_enrollments',
+            'table' => 'martinimultimedia_asso_training_enrollments',
             'order' => 'last_name'
         ]
     ];
