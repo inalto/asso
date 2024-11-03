@@ -5,6 +5,6 @@ columns:
         label: 'Nome'
     attended:
         label: 'Presente'
-        type: listswitch
+        type: inetis-list-switch
         relation: pivot
         sortable: false

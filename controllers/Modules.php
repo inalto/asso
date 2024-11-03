@@ -41,6 +41,7 @@ class Modules extends Controller
             $endDateTime = $startDateTime->copy()->addHours($module->hours);
 
             return [
+                'id' => $module->id,
                 'title' => $module->training->name,
                 'start' => $startDateTime->toIso8601String(),
                 'end' => $endDateTime->toIso8601String(),

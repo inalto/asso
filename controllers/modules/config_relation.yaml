@@ -7,8 +7,8 @@ attendees:
     showCheckboxes: false
     showSearch: true
     showSorting: true
-    list: $/martinimultimedia/asso/models/person/columns_training_form.yaml
+    list: $/martinimultimedia/asso/models/person/columns_module_form.yaml
   manage:
     showSearch: true
-    form: $/martinimultimedia/asso/models/person/fields.yaml
+    form: $/martinimultimedia/asso/models/person/fields_pivot_attendance.yaml
     recordsPerPage: 10

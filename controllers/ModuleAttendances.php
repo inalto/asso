@@ -7,9 +7,12 @@ use Backend\Classes\Controller;
 class Attendance extends Controller
 {
     public $implement = [
-        \Backend\Behaviors\FormController::class,
-        \Backend\Behaviors\ListController::class
+        'Backend\Behaviors\ListController',
+        'Backend\Behaviors\FormController',
+        'Backend\Behaviors\RelationController'
+
     ];
+    
 
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
