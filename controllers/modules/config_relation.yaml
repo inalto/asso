@@ -3,8 +3,8 @@ attendees:
   searchable: true
   filter: $/martinimultimedia/asso/models/person/filters.yaml
   view:
-    toolbarButtons: true
-    showCheckboxes: false
+    toolbarButtons: delete
+    showCheckboxes: true
     showSearch: true
     showSorting: true
     list: $/martinimultimedia/asso/models/person/columns_module_form.yaml

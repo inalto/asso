@@ -54,6 +54,53 @@ class Modules extends Controller
         return response()->json($events);
     }
 
+    public function onSync()
+{
+    ray('onsync');
+    $model = $this->formGetModel();
+    $trainingId = $model->training_id;
+    
+    if ($trainingId) {
+        $enrolledPeople = \MartiniMultimedia\Asso\Models\Training::find($trainingId)
+            ->enrollments()
+            ->get();
+            
+        // Sync with pivot data, setting attended to false by default
+        $syncData = $enrolledPeople->pluck('id')
+            ->mapWithKeys(function ($id) {
+                return [$id => ['attended' => false]];
+            })
+            ->toArray();
+            
+        $model->attendees()->sync($syncData);
+       return; 
+     //   return $this->relationRefreshManageList('attendees');
+    }
+}
+/*
+    public function relationExtendManageListWidget($widget, $field, $model)
+    {
+        if ($field === 'attendees') {
+            ray('List Widget binding triggered for attendees');
+            
+            $widget->bindEvent('list.extendQueryBefore', function ($query) use ($model) {
+                ray('Query extension executing');
+                
+                $trainingId = $model->training_id;
+                if ($trainingId) {
+                    $enrolledPersonIds = \MartiniMultimedia\Asso\Models\Training::find($trainingId)
+                        ->enrollments()
+                        ->pluck('id')
+                        ->toArray();
+                        
+                    ray('Enrolled IDs:', $enrolledPersonIds);
+                    
+                    $query->whereIn('id', $enrolledPersonIds);
+                }
+            });
+        }
+    }
+
     public function relationExtendQuery($query, $relationName)
     {
         ray($relationName);
@@ -67,7 +114,7 @@ class Modules extends Controller
             }
         }
     }
-/*
+
     public function relationExtendManageWidget($widget, $field)
     {
         if ($field === 'attendees') {

@@ -23,6 +23,9 @@ class Training extends Model
      * @var array Validation rules
      */
     public $rules = [
+        'name' => 'required',
+        'description' => 'required',
+        'duration' => 'required'
     ];
 
     public $hasMany = [

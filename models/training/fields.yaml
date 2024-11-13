@@ -2,6 +2,7 @@ fields:
     name:
         label: Nome
         span: auto
+        required: 1
         type: text
     slug:
         label: Alias
@@ -13,6 +14,7 @@ fields:
     hours:
         label: Ore
         span: auto
+        required: 1
         type: number
     template:
         label: Template
@@ -49,6 +51,8 @@ fields:
     duration:
         label: Scadenza
         span: auto
+        default: '1'
+        required: 1
         type: number
         comment: 'Scade tra tot anni'
     color:

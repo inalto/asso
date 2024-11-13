@@ -6,6 +6,8 @@ return [
         "description" => "Descrizione",
         "excerpt" => "Estratto",
         "images" => "Immagini",
+        "lat" => "latitudine",
+        "lon" => "longitudine",
         "markers" => "Posizione",
         "name" => "Nome",
         "slug" => "Alias"
@@ -19,7 +21,8 @@ return [
         "menu" => "Moduli",
         "name" => "Nome",
         "slug" => "Url alias",
-        "teacher" => "Docenti"
+        "teacher" => "Docenti",
+        "venue" => "Aula"
     ],
     "plugin" => [
         "description" => "Gestione servizi e corsi",

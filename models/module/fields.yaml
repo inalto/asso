@@ -53,6 +53,10 @@ fields:
             extension: auto
         span: full
         type: fileupload
+    sync:
+        type: partial
+        path: $/martinimultimedia/asso/models/module/_sync_button.htm
+        span: auto
     attendees:
         label: Iscritti
         nameFrom: name

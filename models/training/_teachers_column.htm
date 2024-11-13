@@ -1,0 +1,7 @@
+<ul>
+<?php foreach ($record->teachers as $teacher): ?>
+    <li><a href="<?= Backend::url('martinimultimedia/asso/teachers/update/'.$teacher->id) ?>">
+        <?= e($teacher->last_name) ?> <?= e($teacher->first_name) ?>
+    </a></li>
+<?php endforeach ?>
+</ul>

@@ -28,3 +28,6 @@ columns:
         type: datetime
         format: d/m/Y H:i
         sortable: true
+    venue:
+        label: 'martinimultimedia.asso::lang.module.venue'
+        type: text

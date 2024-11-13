@@ -4,9 +4,10 @@ columns:
         type: text
         searchable: true
         ortable: true
-    teacher:
-        label: Docente
-        type: text
+    teachers:
+        label: Docenti
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/training/_teachers_column.htm
         searchable: true
         sortable: true
     hours:
@@ -14,8 +15,4 @@ columns:
         type: text
         searchable: true
         sortable: true
-    location_city:
-        label: Luogo
-        type: text
-        searchable: true
-        sortable: true
+

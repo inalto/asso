@@ -93,3 +93,12 @@ v1.0.31:
 v1.0.32:
     - 'Updated table martinimultimedia_asso_module_attendances'
     - builder_table_update_martinimultimedia_asso_module_attendances_2.php
+v1.0.33:
+    - 'Updated table martinimultimedia_asso_trainings'
+    - builder_table_update_martinimultimedia_asso_trainings_5.php
+v1.0.34:
+    - 'Updated table martinimultimedia_asso_modules'
+    - builder_table_update_martinimultimedia_asso_modules_5.php
+v1.0.35:
+    - 'Updated table martinimultimedia_asso_modules'
+    - builder_table_update_martinimultimedia_asso_modules_6.php

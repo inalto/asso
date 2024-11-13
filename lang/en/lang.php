@@ -6,6 +6,8 @@ return [
         "description" => "Description",
         "excerpt" => "Excerpt",
         "images" => "Images",
+        "lat" => "",
+        "lon" => "",
         "markers" => "Markers",
         "name" => "Name",
         "slug" => "slug"
@@ -19,7 +21,8 @@ return [
         "menu" => "",
         "name" => "",
         "slug" => "",
-        "teacher" => ""
+        "teacher" => "",
+        "venue" => "Venue"
     ],
     "plugin" => ["description" => "", "name" => "Asso", "permission" => ["label" => ""]],
     "service" => ["color" => ""],
