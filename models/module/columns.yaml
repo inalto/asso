@@ -30,4 +30,7 @@ columns:
         sortable: true
     venue:
         label: 'martinimultimedia.asso::lang.module.venue'
-        type: text
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/module/_venue_column.htm
+        searchable: true
+        sortable: true
