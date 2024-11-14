@@ -3,7 +3,7 @@ columns:
         label: Corso
         type: text
         searchable: true
-        ortable: true
+        ortable: '1'
     teachers:
         label: Docenti
         type: partial
@@ -11,13 +11,16 @@ columns:
         searchable: true
         sortable: true
     hours:
-        label: Durata (ore)
+        label: 'Durata (ore)'
         type: text
         searchable: true
         sortable: true
+    start_date:
+        label: 'Valido dal'
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/training/_from_column.htm
+        sortable: true
     duration:
-        label: Validità (anni)
-        type: text
-        searchable: true
-        sortable: true    
-
+        label: al
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/training/_duration_column.htm

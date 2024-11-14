@@ -80,7 +80,7 @@ fields:
 tabs:
     fields:
         enrollments:
-            label: Relation
+            label: Corsi
             nameFrom: name
             descriptionFrom: description
             span: full

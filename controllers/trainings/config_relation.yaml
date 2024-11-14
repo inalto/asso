@@ -34,7 +34,7 @@ enrollments:
     showSearch: true
     showSorting: true
     list: $/martinimultimedia/asso/models/person/columns_training_form.yaml
-  manage:
-    showSearch: true
-    form: $/martinimultimedia/asso/models/person/fields.yaml
-    recordsPerPage: 10
+#  manage:
+#    showSearch: true
+#    form: $/martinimultimedia/asso/models/person/fields.yaml
+#    recordsPerPage: 10

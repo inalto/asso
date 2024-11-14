@@ -27,3 +27,7 @@ columns:
         type: inetis-list-switch
         searchable: true
         sortable: true
+    actions:
+        label: Azioni
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/person/_button.htm

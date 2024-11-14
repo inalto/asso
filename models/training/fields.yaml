@@ -49,7 +49,7 @@ fields:
         span: full
         type: relation
     start_date:
-        label: Data
+        label: 'Data inizio validità'
         mode: date
         span: auto
         required: 1
