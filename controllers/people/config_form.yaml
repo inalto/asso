@@ -1,6 +1,6 @@
 name: People
-form: $/martinimultimedia/asso/models/person/fields.yaml
 modelClass: MartiniMultimedia\Asso\Models\Person
+form: $/martinimultimedia/asso/models/person/fields.yaml
 defaultRedirect: martinimultimedia/asso/people
 create:
     redirect: 'martinimultimedia/asso/people/update/:id'
@@ -8,3 +8,4 @@ create:
 update:
     redirect: martinimultimedia/asso/people
     redirectClose: martinimultimedia/asso/people
+preview: {  }

@@ -102,3 +102,9 @@ v1.0.34:
 v1.0.35:
     - 'Updated table martinimultimedia_asso_modules'
     - builder_table_update_martinimultimedia_asso_modules_6.php
+v1.0.36:
+    - 'Updated table martinimultimedia_asso_trainings'
+    - builder_table_update_martinimultimedia_asso_trainings_6.php
+v1.0.37:
+    - 'Updated table martinimultimedia_asso_trainings'
+    - builder_table_update_martinimultimedia_asso_trainings_7.php

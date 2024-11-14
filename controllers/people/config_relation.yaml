@@ -1,0 +1,14 @@
+enrollments:
+  label: Iscritti
+  searchable: true
+  filter: $/martinimultimedia/asso/models/training/filters.yaml
+  view:
+    toolbarButtons: true
+    showCheckboxes: true
+    showSearch: true
+    showSorting: true
+    list: $/martinimultimedia/asso/models/training/columns.yaml
+  manage:
+    showSearch: true
+    form: $/martinimultimedia/asso/models/training/fields.yaml
+    recordsPerPage: 10

@@ -42,6 +42,11 @@ class Person extends Model
             'order' => 'name'
         ],
 
+        'enrollments' => [
+            'MartiniMultimedia\Asso\Models\Training',
+            'table' => 'martinimultimedia_asso_training_enrollments',
+            'order' => 'name'
+        ],
         'modules' => [
             'MartiniMultimedia\Asso\Models\Module',
             'table' => 'martinimultimedia_asso_module_attendance',

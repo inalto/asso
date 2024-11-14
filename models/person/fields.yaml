@@ -11,7 +11,7 @@ fields:
         span: auto
         type: fileupload
     task:
-        label: 'Mansione'
+        label: Mansione
         span: auto
         type: text
     cna:
@@ -19,7 +19,7 @@ fields:
         span: auto
         type: switch
     other:
-        label: 'Altro'
+        label: Altro
         span: auto
         type: text
     last_name:
@@ -51,7 +51,6 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: text
-
     phones:
         label: Telefoni
         prompt: 'Aggiungi numero'
@@ -78,3 +77,12 @@ fields:
                     label: Indirizzo
                     span: auto
                     type: text
+tabs:
+    fields:
+        enrollments:
+            label: Relation
+            nameFrom: name
+            descriptionFrom: description
+            span: full
+            type: relation
+            tab: 'Corsi frequentati'

@@ -48,6 +48,12 @@ fields:
         descriptionFrom: description
         span: full
         type: relation
+    start_date:
+        label: Data
+        mode: date
+        span: auto
+        required: 1
+        type: datepicker
     duration:
         label: Scadenza
         span: auto
@@ -57,7 +63,7 @@ fields:
         comment: 'Scade tra tot anni'
     color:
         label: 'martinimultimedia.asso::lang.service.color'
-        span: auto
         allowEmpty: true
         allowCustom: true
+        span: full
         type: colorpicker

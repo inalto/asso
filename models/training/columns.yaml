@@ -15,4 +15,9 @@ columns:
         type: text
         searchable: true
         sortable: true
+    duration:
+        label: Validità (anni)
+        type: text
+        searchable: true
+        sortable: true    
 

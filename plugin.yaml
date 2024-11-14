@@ -16,42 +16,62 @@ navigation:
                 label: Cruscotto
                 url: martinimultimedia/asso/companies/dashboard
                 icon: icon-dashboard
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item:
                 label: Aziende
                 url: martinimultimedia/asso/companies
                 icon: icon-book
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item2:
                 label: Servizi
                 url: martinimultimedia/asso/services
                 icon: icon-sitemap
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item9:
                 label: Aule
                 url: martinimultimedia/asso/venues
                 icon: icon-home
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item3:
                 label: Corsi
                 url: martinimultimedia/asso/trainings
                 icon: icon-certificate
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item8:
                 label: Moduli
                 url: martinimultimedia/asso/modules
                 icon: icon-suitcase
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item7:
                 label: Docenti
                 url: martinimultimedia/asso/teachers
                 icon: icon-university
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item4:
                 label: Persone
                 url: martinimultimedia/asso/people
                 icon: icon-users
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item5:
                 label: Ateco
                 url: martinimultimedia/asso/atecos
                 icon: icon-sitemap
+                permissions:
+                    - martinimultimedia.asso
             side-menu-item6:
                 label: Calendario
                 url: martinimultimedia/asso/calendars
                 icon: icon-calendar
+                permissions:
+                    - martinimultimedia.asso
 permissions:
     martinimultimedia.asso:
         tab: 'martinimultimedia.asso::lang.plugin.name'

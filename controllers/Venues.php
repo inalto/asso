@@ -11,7 +11,7 @@ class Venues extends Controller
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
-        'martinimultimedia.asso.access_venues',
+        'martinimultimedia.asso',
     ];
 
     public function __construct()
