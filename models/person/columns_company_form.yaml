@@ -19,3 +19,7 @@ columns:
     task_id:
         label: Mansione
         type: number
+    actions:
+        label: Azioni
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/person/_button.htm

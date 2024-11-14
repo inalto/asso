@@ -1,13 +1,11 @@
 people:
-
   label: Dipendenti
-
   view:
     list: $/martinimultimedia/asso/models/person/columns_company_form.yaml
     toolbarButtons: create|delete
     showSearch: true
-  manage:
-    form: $/martinimultimedia/asso/models/person/fields.yaml
-    recordsPerPage: 10
-    showSearch: true
+#  manage:
+#    form: $/martinimultimedia/asso/models/person/fields.yaml
+#    recordsPerPage: 10
+#    showSearch: true
     
