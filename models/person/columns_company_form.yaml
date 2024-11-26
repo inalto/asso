@@ -2,9 +2,11 @@ columns:
     first_name:
         label: Cognome
         type: text
+        searchable: true
     last_name:
         label: Nome
         type: text
+        searchable: true
     cf:
         label: "C.F."
         type: text

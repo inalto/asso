@@ -51,12 +51,12 @@ class Training extends Model
         'template' => 'System\Models\File'
     ];
 
-    public function getToAttribute($value)
+    public function getFromAttribute($value)
     {
-        return Carbon::parse($this->start_date)->format('m/Y');
+        return Carbon::parse($this->start_date)->format('m/Y');   
     }
 
-    public function getFromAttribute($value)
+    public function getToAttribute($value)
     {
         return Carbon::parse($this->start_date)->addYears($this->duration)->format('m/Y');
     }

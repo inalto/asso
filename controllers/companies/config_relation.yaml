@@ -2,10 +2,22 @@ people:
   label: Dipendenti
   view:
     list: $/martinimultimedia/asso/models/person/columns_company_form.yaml
-    toolbarButtons: create|delete
+    toolbarButtons: create|add|delete
+    showCheckboxes: true
     showSearch: true
-#  manage:
-#    form: $/martinimultimedia/asso/models/person/fields.yaml
-#    recordsPerPage: 10
-#    showSearch: true
+    showSorting: true
+  manage:
+    form: $/martinimultimedia/asso/models/person/fields_base.yaml
+    recordsPerPage: 10
+    showSearch: true
     
+atecos:
+  label: Ateco
+  view:
+    list: $/martinimultimedia/asso/models/ateco/columns.yaml
+    toolbarButtons: add|delete
+    showSearch: true
+  manage:
+    form: $/martinimultimedia/asso/models/ateco/fields.yaml
+    recordsPerPage: 10
+    showSearch: true

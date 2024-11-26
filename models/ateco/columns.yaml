@@ -4,8 +4,19 @@ columns:
         type: text
         searchable: true
         sortable: true
+    code:
+        label: Codice
+        type: text
+        hidden: '1'
+        searchable: true
+        sortable: true
     description:
         label: Descrizione
         type: text
         searchable: true
         sortable: true
+    risk:
+        label: 'Livello rischio'
+        type: partial
+        sortable: true
+        path: ~/plugins/martinimultimedia/asso/models/ateco/_risk.htm

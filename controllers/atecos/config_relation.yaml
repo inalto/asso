@@ -1,0 +1,8 @@
+companies:
+  label: Aziende
+  view:
+    toolbarButtons: true
+    showCheckboxes: true
+    showSearch: true
+    showSorting: true
+    list: $/martinimultimedia/asso/models/company/columns.yaml

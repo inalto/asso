@@ -1,12 +1,3 @@
-tabs:
-    fields:
-        enrollments:
-            label: Corsi
-            nameFrom: name
-            descriptionFrom: description
-            span: full
-            type: relation
-            tab: 'Corsi frequentati'
 fields:
     image:
         label: Foto
@@ -86,10 +77,3 @@ fields:
                     label: Indirizzo
                     span: auto
                     type: text
-    company:
-        label: Azienda
-        span: full
-        nameFrom: name
-        descriptionFrom: description
-        list: $/martinimultimedia/asso/models/company/columns.yaml
-        type: recordfinder

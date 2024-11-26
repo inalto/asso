@@ -14,3 +14,20 @@ fields:
         size: small
         span: full
         type: textarea
+    risk:
+        label: 'Livello di rischio'
+        span: auto
+        showSearch: 0
+        options:
+            - Nessuno
+            - Basso
+            - Medio
+            - Alto
+        default: '0'
+        type: dropdown
+    companies:
+        label: Aziende
+        nameFrom: name
+        descriptionFrom: description
+        span: full
+        type: relation

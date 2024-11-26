@@ -1,0 +1,32 @@
+columns:
+    id:
+        label: id
+        type: number
+        searchable: true
+        invisible: true
+    name:
+        label: 'martinimultimedia.asso::lang.module.name'
+        type: text
+        searchable: true
+        sortable: true
+    teacher:
+        label: 'martinimultimedia.asso::lang.module.teacher'
+        type: text
+        sortable: true
+    hours:
+        label: 'martinimultimedia.asso::lang.module.hours'
+        type: number
+        sortable: true
+    credits:
+        label: 'martinimultimedia.asso::lang.module.credits'
+        type: number
+        sortable: true
+    date:
+        label: 'martinimultimedia.asso::lang.module.date'
+        type: datetime
+        format: d/m/Y H:i
+        sortable: true
+    venue:
+        label: 'martinimultimedia.asso::lang.module.venue'
+        type: partial
+        path: ~/plugins/martinimultimedia/asso/models/module/_venue_column.htm

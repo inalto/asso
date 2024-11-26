@@ -24,7 +24,13 @@ class Ateco extends Model
     public $rules = [
     ];
 
-    public $hasMany = [
-        'companies' => 'MartiniMultimedia\Asso\Models\Company'
+   
+    public $belongsToMany = [
+        'companies' => [
+            'MartiniMultimedia\Asso\Models\Company',
+            'table' => 'martinimultimedia_asso_ateco_company'
+            ]
     ];
+
+
 }

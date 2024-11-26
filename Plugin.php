@@ -4,6 +4,7 @@ use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
 {
+
     public function registerComponents()
     {
     }
@@ -16,6 +17,7 @@ class Plugin extends PluginBase
         $this->registerConsoleCommand('asso.import', 'MartiniMultimedia\Asso\Console\Import');
         $this->registerConsoleCommand('asso.ateco', 'MartiniMultimedia\Asso\Console\Ateco');
         $this->registerConsoleCommand('asso.comuni', 'MartiniMultimedia\Asso\Console\Comuni');
+        $this->registerConsoleCommand('asso.sync-ateco', 'MartiniMultimedia\Asso\Console\SyncCompanyAteco');
 
         \Route::group(['prefix' => 'api', 'middleware' => ['web']], function () {
        

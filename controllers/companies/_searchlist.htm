@@ -51,7 +51,7 @@
             </p>
             <?php endif ?>
             <a class="btn btn-primary oc-icon-eye"
-                href="/backend/martinimultimedia/asso/companies/update/<?= $azienda->id?>">Vedi</a>
+                href="<?= Backend::url('martinimultimedia/asso/companies/update/'.$azienda->id); ?>">Vedi</a>
         </div>
         <?php endforeach ?>
 
@@ -120,7 +120,7 @@
                 </svg> Non iscritto CNA</p>
             <?php endif ?>
             <a class="btn btn-primary oc-icon-eye"
-                href="/backend/martinimultimedia/asso/people/update/<?= $azienda->id?>">Vedi</a>
+                href="<?= Backend::url('martinimultimedia/asso/people/update/'.$person->id); ?>">Vedi</a>
         </div>
         <?php endforeach ?>
 

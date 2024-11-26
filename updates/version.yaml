@@ -108,3 +108,12 @@ v1.0.36:
 v1.0.37:
     - 'Updated table martinimultimedia_asso_trainings'
     - builder_table_update_martinimultimedia_asso_trainings_7.php
+v1.0.38:
+    - 'Created table martinimultimedia_asso_ateco_company'
+    - builder_table_create_martinimultimedia_asso_ateco_company.php
+v1.0.39:
+    - 'Updated table martinimultimedia_asso_atecos'
+    - builder_table_update_martinimultimedia_asso_atecos.php
+v1.0.40:
+    - 'Updated table martinimultimedia_asso_atecos'
+    - builder_table_update_martinimultimedia_asso_atecos_2.php

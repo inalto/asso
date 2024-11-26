@@ -1,0 +1,10 @@
+scopes:
+  risk:
+    label: Status
+    type: dropdown
+    modelClass: MartiniMultimedia\Asso\Models\Ateco
+    options:
+      0: 'Nessun rischio'
+      1: 'Rischio basso'
+      2: 'Rischio medio'
+      3: 'Rischio alto'

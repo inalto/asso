@@ -46,18 +46,12 @@ fields:
         size: small
         span: full
         type: richeditor
-    ateco:
-        label: 'Codice Ateco'
+    atecos:
+        label: 'Codici Ateco'
+        span: full
         nameFrom: name
         descriptionFrom: description
-        prompt: 'Scegli il codice ATECO'
-        list: $/martinimultimedia/asso/models/ateco/columns.yaml
-        span: full
-        trigger:
-            action: empty
-            field: ateco_id
-        containerAttributes: {  }
-        type: recordfinder
+        type: relation
     phones:
         label: Telefoni
         prompt: 'Aggiungi numero'
@@ -84,3 +78,9 @@ fields:
                     label: 'Indirizzo email'
                     span: auto
                     type: text
+    people:
+        label: Dipendenti
+        span: full
+        nameFrom: name
+        descriptionFrom: description
+        type: relation

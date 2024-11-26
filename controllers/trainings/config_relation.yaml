@@ -1,13 +1,13 @@
 modules:
   label: Moduli
   view:
-    toolbarButtons: true
+    toolbarButtons: create|add|delete
     showCheckboxes: true
     showSearch: true
     showSorting: true
-    list: $/martinimultimedia/asso/models/module/columns.yaml
+    list: $/martinimultimedia/asso/models/module/columns_short.yaml
   manage:
-    form: $/martinimultimedia/asso/models/module/fields.yaml
+    form: $/martinimultimedia/asso/models/module/fields_short.yaml
     showSearch: true
     showSorting: true
     recordsPerPage: 10
@@ -29,12 +29,13 @@ enrollments:
   searchable: true
   filter: $/martinimultimedia/asso/models/person/filters.yaml
   view:
-    toolbarButtons: true
+    toolbarButtons: add|delete
     showCheckboxes: true
     showSearch: true
     showSorting: true
+    recordsPerPage: 10
     list: $/martinimultimedia/asso/models/person/columns_training_form.yaml
-#  manage:
-#    showSearch: true
-#    form: $/martinimultimedia/asso/models/person/fields.yaml
-#    recordsPerPage: 10
+  manage:
+    showSearch: true
+    form: $/martinimultimedia/asso/models/person/fields.yaml
+    recordsPerPage: 10

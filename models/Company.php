@@ -32,4 +32,7 @@ class Company extends Model
     public $belongsTo = [
         'ateco' => 'MartiniMultimedia\Asso\Models\Ateco'
     ];
+    public $belongsToMany = [
+        'atecos' => ['MartiniMultimedia\Asso\Models\Ateco', 'table' => 'martinimultimedia_asso_ateco_company']
+    ];
 }
