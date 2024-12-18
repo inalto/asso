@@ -93,3 +93,21 @@ fields:
         descriptionFrom: description
         list: $/martinimultimedia/asso/models/company/columns.yaml
         type: recordfinder
+    documents:
+        label: Documenti
+        span: full
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload
+    achievements:
+        label: Attestati
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload
