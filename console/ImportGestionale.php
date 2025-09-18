@@ -204,17 +204,17 @@ class ImportGestionale extends Command
         $phones = [];
         
         // Collect emails
-        if (!empty($rowData['mail_generica'])) $emails[] = $rowData['mail_generica'];
-        if (!empty($rowData['mail_contabilita'])) $emails[] = $rowData['mail_contabilita'];
+        if (!empty($rowData['mail_generica'])) $emails[] = ['email' => $rowData['mail_generica']];
+        if (!empty($rowData['mail_contabilita'])) $emails[] = ['email' => $rowData['mail_contabilita']];
         
         // Collect phones and fax
-        if (!empty($rowData['tel_fisso'])) $phones[] = $rowData['tel_fisso'];
-        if (!empty($rowData['fax'])) $phones[] = $rowData['fax'];
+        if (!empty($rowData['tel_fisso'])) $phones[] = ['number' => $rowData['tel_fisso'], 'rif' => ''];
+        if (!empty($rowData['fax'])) $phones[] = ['number' => $rowData['fax'], 'rif' => ''];
         
         $companyData = [
             'name' => $companyName,
-            'emails' => !empty($emails) ? array_unique($emails) : null,
-            'phones' => !empty($phones) ? array_unique($phones) : null,
+            'emails' => $emails,
+            'phones' => $phones,
             'pec' => $rowData['pec'] ?: null,
         ];
 
@@ -224,21 +224,54 @@ class ImportGestionale extends Command
         if ($company) {
             // Update existing company
             if (!$dryRun) {
-                // Merge emails and phones with existing data
-                $existingEmails = $this->decodeJsonField($company->emails);
-                $existingPhones = $this->decodeJsonField($company->phones);
-                
-                $mergedEmails = array_unique(array_merge($existingEmails, $emails));
-                $mergedPhones = array_unique(array_merge($existingPhones, $phones));
-                
-                $company->emails = !empty($mergedEmails) ? $mergedEmails : $company->emails;
-                $company->phones = !empty($mergedPhones) ? $mergedPhones : $company->phones;
-                
-                if (!empty($rowData['pec']) && empty($company->pec)) {
-                    $company->pec = $rowData['pec'];
+                try {
+                    // Merge emails and phones with existing data
+                    $existingEmails = $this->decodeJsonField($company->emails);
+                    $existingPhones = $this->decodeJsonField($company->phones);
+                    
+                    // Merge new emails avoiding duplicates
+                    $allEmails = array_merge($existingEmails, $emails);
+                    $uniqueEmails = [];
+                    $seenEmails = [];
+                    foreach ($allEmails as $emailObj) {
+                        if (isset($emailObj['email']) && !in_array($emailObj['email'], $seenEmails)) {
+                            $uniqueEmails[] = $emailObj;
+                            $seenEmails[] = $emailObj['email'];
+                        }
+                    }
+                    
+                    // Merge new phones avoiding duplicates
+                    $allPhones = array_merge($existingPhones, $phones);
+                    $uniquePhones = [];
+                    $seenPhones = [];
+                    foreach ($allPhones as $phoneObj) {
+                        if (isset($phoneObj['number'])) {
+                            // Normalize phone number for comparison (convert to string)
+                            $phoneNumber = (string) $phoneObj['number'];
+                            if (!in_array($phoneNumber, $seenPhones)) {
+                                $uniquePhones[] = $phoneObj;
+                                $seenPhones[] = $phoneNumber;
+                            }
+                        }
+                    }
+                    
+                    $company->emails = $uniqueEmails;
+                    $company->phones = $this->truncateJsonIfNeeded($uniquePhones, 'phones');
+                    
+                    if (!empty($rowData['pec']) && empty($company->pec)) {
+                        $company->pec = $rowData['pec'];
+                    }
+                    
+                    $company->save();
+                } catch (\Exception $e) {
+                    $this->error("Error updating company '{$companyName}': " . $e->getMessage());
+                    $this->error("Company data: " . json_encode([
+                        'emails' => $company->emails,
+                        'phones' => $company->phones,
+                        'pec' => $company->pec
+                    ]));
+                    throw $e;
                 }
-                
-                $company->save();
             }
             $updated = true;
             $this->line("Updated company: {$companyName}");
@@ -246,7 +279,12 @@ class ImportGestionale extends Command
             // Create new company
             if (!$dryRun) {
                 try {
-                    $company = Company::create($companyData);
+                    $company = Company::create([
+                        'name' => $companyName,
+                        'emails' => $emails,
+                        'phones' => $this->truncateJsonIfNeeded($phones, 'phones'),
+                        'pec' => $rowData['pec'] ?? null,
+                    ]);
                 } catch (\Exception $e) {
                     $this->error("Error creating company '{$companyName}': " . $e->getMessage());
                     $this->error("Company data: " . json_encode($companyData));
@@ -289,20 +327,20 @@ class ImportGestionale extends Command
         $phones = [];
         
         // Collect emails
-        if (!empty($rowData['mail_personale'])) $emails[] = $rowData['mail_personale'];
-        if (!empty($rowData['mail_corsi'])) $emails[] = $rowData['mail_corsi'];
+        if (!empty($rowData['mail_personale'])) $emails[] = ['email' => $rowData['mail_personale']];
+        if (!empty($rowData['mail_corsi'])) $emails[] = ['email' => $rowData['mail_corsi']];
         
         // Collect phones
-        if (!empty($rowData['tel_cellulare'])) $phones[] = $rowData['tel_cellulare'];
-        if (!empty($rowData['tel_privato'])) $phones[] = $rowData['tel_privato'];
+        if (!empty($rowData['tel_cellulare'])) $phones[] = ['number' => $rowData['tel_cellulare'], 'rif' => ''];
+        if (!empty($rowData['tel_privato'])) $phones[] = ['number' => $rowData['tel_privato'], 'rif' => ''];
         
         $personData = [
             'first_name' => $firstName,
             'last_name' => $lastName,
             'cf' => $codiceFiscale,
             'task' => $rowData['mansione'],
-            'emails' => !empty($emails) ? array_unique($emails) : null,
-            'phones' => !empty($phones) ? array_unique($phones) : null,
+            'emails' => $emails,
+            'phones' => $phones,
             'company_id' => $company ? $company->id : null,
         ];
 
@@ -312,30 +350,65 @@ class ImportGestionale extends Command
         if ($person) {
             // Update existing person
             if (!$dryRun) {
-                // Merge emails and phones with existing data
-                $existingEmails = $this->decodeJsonField($person->emails);
-                $existingPhones = $this->decodeJsonField($person->phones);
-                
-                $mergedEmails = array_unique(array_merge($existingEmails, $emails));
-                $mergedPhones = array_unique(array_merge($existingPhones, $phones));
-                
-                $person->emails = !empty($mergedEmails) ? $mergedEmails : $person->emails;
-                $person->phones = !empty($mergedPhones) ? $mergedPhones : $person->phones;
-                
-                // Update other fields if they're empty
-                if (!empty($rowData['mansione']) && empty($person->task)) {
-                    $person->task = $rowData['mansione'];
+                try {
+                    // Merge emails and phones with existing data
+                    $existingEmails = $this->decodeJsonField($person->emails);
+                    $existingPhones = $this->decodeJsonField($person->phones);
+                    
+                    // Merge new emails avoiding duplicates
+                    $allEmails = array_merge($existingEmails, $emails);
+                    $uniqueEmails = [];
+                    $seenEmails = [];
+                    foreach ($allEmails as $emailObj) {
+                        if (isset($emailObj['email']) && !in_array($emailObj['email'], $seenEmails)) {
+                            $uniqueEmails[] = $emailObj;
+                            $seenEmails[] = $emailObj['email'];
+                        }
+                    }
+                    
+                    // Merge new phones avoiding duplicates
+                    $allPhones = array_merge($existingPhones, $phones);
+                    $uniquePhones = [];
+                    $seenPhones = [];
+                    foreach ($allPhones as $phoneObj) {
+                        if (isset($phoneObj['number'])) {
+                            // Normalize phone number for comparison (convert to string)
+                            $phoneNumber = (string) $phoneObj['number'];
+                            if (!in_array($phoneNumber, $seenPhones)) {
+                                $uniquePhones[] = $phoneObj;
+                                $seenPhones[] = $phoneNumber;
+                            }
+                        }
+                    }
+                    
+                    $person->emails = $uniqueEmails;
+                    $person->phones = $this->truncateJsonIfNeeded($uniquePhones, 'phones');
+                    
+                    // Update other fields if they're empty
+                    if (!empty($rowData['mansione']) && empty($person->task)) {
+                        $person->task = $rowData['mansione'];
+                    }
+                    
+                    if ($company && empty($person->company_id)) {
+                        $person->company_id = $company->id;
+                    }
+                    
+                    if (!empty($codiceFiscale) && empty($person->cf)) {
+                        $person->cf = $codiceFiscale;
+                    }
+                    
+                    $person->save();
+                } catch (\Exception $e) {
+                    $this->error("Error updating person '{$firstName} {$lastName}': " . $e->getMessage());
+                    $this->error("Person data: " . json_encode([
+                        'emails' => $person->emails,
+                        'phones' => $person->phones,
+                        'task' => $person->task,
+                        'company_id' => $person->company_id,
+                        'cf' => $person->cf
+                    ]));
+                    throw $e;
                 }
-                
-                if ($company && empty($person->company_id)) {
-                    $person->company_id = $company->id;
-                }
-                
-                if (!empty($codiceFiscale) && empty($person->cf)) {
-                    $person->cf = $codiceFiscale;
-                }
-                
-                $person->save();
             }
             $updated = true;
             $this->line("Updated person: {$firstName} {$lastName}");
@@ -488,5 +561,23 @@ class ImportGestionale extends Command
         }
         
         return [];
+    }
+    
+    /**
+     * Truncate JSON array if it would be too long for database column
+     */
+    private function truncateJsonIfNeeded($data, $fieldName)
+    {
+        $json = json_encode($data);
+        $maxLength = 65535; // TEXT column limit (64KB)
+        
+        if (strlen($json) > $maxLength) {
+            $this->warn("Truncating {$fieldName} data - too long for database column (length: " . strlen($json) . ")");
+            // Keep only first few items to fit in column
+            $truncated = array_slice($data, 0, 10);
+            return $truncated;
+        }
+        
+        return $data;
     }
 }

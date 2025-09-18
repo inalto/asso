@@ -123,3 +123,9 @@ v1.0.41:
 v1.0.44:
     - 'Recreate tasks table with correct structure for To-Do System'
     - recreate_tasks_table.php
+v1.0.45:
+    - 'Alter companies phones and emails fields to TEXT'
+    - alter_companies_phones_emails_to_text.php
+v1.0.46:
+    - 'Alter people phones and emails fields to TEXT'
+    - alter_people_phones_emails_to_text.php
