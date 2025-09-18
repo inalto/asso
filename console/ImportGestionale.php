@@ -224,8 +224,8 @@ class ImportGestionale extends Command
             // Update existing company
             if (!$dryRun) {
                 // Merge emails and phones with existing data
-                $existingEmails = $company->emails ? json_decode($company->emails, true) : [];
-                $existingPhones = $company->phones ? json_decode($company->phones, true) : [];
+                $existingEmails = $this->decodeJsonField($company->emails);
+                $existingPhones = $this->decodeJsonField($company->phones);
                 
                 $mergedEmails = array_unique(array_merge($existingEmails, $emails));
                 $mergedPhones = array_unique(array_merge($existingPhones, $phones));
@@ -306,8 +306,8 @@ class ImportGestionale extends Command
             // Update existing person
             if (!$dryRun) {
                 // Merge emails and phones with existing data
-                $existingEmails = $person->emails ? json_decode($person->emails, true) : [];
-                $existingPhones = $person->phones ? json_decode($person->phones, true) : [];
+                $existingEmails = $this->decodeJsonField($person->emails);
+                $existingPhones = $this->decodeJsonField($person->phones);
                 
                 $mergedEmails = array_unique(array_merge($existingEmails, $emails));
                 $mergedPhones = array_unique(array_merge($existingPhones, $phones));
@@ -452,5 +452,28 @@ class ImportGestionale extends Command
         }
         
         return implode(' ', $formatted_words);
+    }
+
+    /**
+     * Safely decode JSON field that might be string or array
+     */
+    private function decodeJsonField($field)
+    {
+        if (empty($field)) {
+            return [];
+        }
+        
+        // If it's already an array, return it
+        if (is_array($field)) {
+            return $field;
+        }
+        
+        // If it's a string, try to decode it
+        if (is_string($field)) {
+            $decoded = json_decode($field, true);
+            return $decoded ? $decoded : [];
+        }
+        
+        return [];
     }
 }
