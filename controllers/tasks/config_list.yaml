@@ -1,0 +1,17 @@
+title: All Tasks
+modelClass: MartiniMultimedia\Asso\Models\Task
+list: $/martinimultimedia/asso/models/task/columns.yaml
+
+recordUrl: martinimultimedia/asso/tasks/update/:id
+
+noRecordsMessage: backend::lang.list.no_records
+
+showSetup: true
+showCheckboxes: true
+
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: backend::lang.list.search_prompt
+
+filter: $/martinimultimedia/asso/models/task/scopes.yaml

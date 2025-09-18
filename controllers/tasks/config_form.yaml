@@ -1,0 +1,16 @@
+name: Tasks
+form: $/martinimultimedia/asso/models/task/fields.yaml
+modelClass: MartiniMultimedia\Asso\Models\Task
+
+create:
+    title: Create Task
+    redirect: martinimultimedia/asso/tasks/update/:id
+    redirectClose: martinimultimedia/asso/tasks
+
+update:
+    title: Edit Task
+    redirect: martinimultimedia/asso/tasks
+    redirectClose: martinimultimedia/asso/tasks
+
+preview:
+    title: Preview Task

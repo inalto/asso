@@ -3,7 +3,7 @@ columns:
         label: Corso
         type: text
         searchable: true
-        ortable: '1'
+        sortable: '1'
     teachers:
         label: Docenti
         type: partial

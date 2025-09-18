@@ -1,0 +1,28 @@
+subject = "New Task Assigned: {{ task.title }}"
+==
+
+<h2>New Task Assigned</h2>
+
+<p>Hello {{ assigned_user.full_name }},</p>
+
+<p>You have been assigned a new task:</p>
+
+<div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #007bff; margin: 20px 0;">
+    <h3>{{ task.title }}</h3>
+    <p><strong>Description:</strong> {{ task.description|raw }}</p>
+    <p><strong>Priority:</strong> 
+        {% set priority_color = task.priority == 'urgent' or task.priority == 'high' ? '#dc3545' : (task.priority == 'medium' ? '#ffc107' : '#28a745') %}
+        <span style="color: {{ priority_color }};">
+            {{ task.priority|title }}
+        </span>
+    </p>
+    {% if task.due_date %}
+    <p><strong>Due Date:</strong> {{ task.due_date.format('M d, Y H:i') }}</p>
+    {% endif %}
+    <p><strong>Assigned by:</strong> {{ created_by.full_name }}</p>
+</div>
+
+<p>Please log in to your dashboard to view and manage this task.</p>
+
+<p>Best regards,<br>
+Task Management System</p>

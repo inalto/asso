@@ -1,0 +1,34 @@
+scopes:
+    status:
+        label: martinimultimedia.asso::lang.task.filter_status
+        type: group
+        conditions: status in (:filtered)
+        options:
+            pending: martinimultimedia.asso::lang.task.status.pending
+            in_progress: martinimultimedia.asso::lang.task.status.in_progress
+            completed: martinimultimedia.asso::lang.task.status.completed
+            cancelled: martinimultimedia.asso::lang.task.status.cancelled
+
+    priority:
+        label: martinimultimedia.asso::lang.task.filter_priority
+        type: group
+        conditions: priority in (:filtered)
+        options:
+            urgent: martinimultimedia.asso::lang.task.priority.urgent
+            high: martinimultimedia.asso::lang.task.priority.high
+            medium: martinimultimedia.asso::lang.task.priority.medium
+            low: martinimultimedia.asso::lang.task.priority.low
+
+    assigned_to:
+        label: martinimultimedia.asso::lang.task.filter_assigned_to
+        type: dropdown
+        conditions: assigned_to_user_id = :value
+        modelClass: Backend\Models\User
+        nameFrom: full_name
+        emptyOption: martinimultimedia.asso::lang.task.filter_all_users
+
+    overdue:
+        label: martinimultimedia.asso::lang.task.filter_overdue
+        type: checkbox
+        conditions: due_date < :value AND status NOT IN ('completed', 'cancelled')
+        default: 0

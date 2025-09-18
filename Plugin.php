@@ -18,11 +18,18 @@ class Plugin extends PluginBase
         $this->registerConsoleCommand('asso.ateco', 'MartiniMultimedia\Asso\Console\Ateco');
         $this->registerConsoleCommand('asso.comuni', 'MartiniMultimedia\Asso\Console\Comuni');
         $this->registerConsoleCommand('asso.sync-ateco', 'MartiniMultimedia\Asso\Console\SyncCompanyAteco');
+        $this->registerConsoleCommand('asso.task-notifications', 'MartiniMultimedia\Asso\Console\TaskNotifications');
 
         \Route::group(['prefix' => 'api', 'middleware' => ['web']], function () {
        
             \Route::get('dates', 'MartiniMultimedia\Asso\Controllers\Modules@dates');
         });
+    }
+
+    public function boot()
+    {
+        // Register task notification event listeners
+        \Event::subscribe('MartiniMultimedia\Asso\Classes\TaskNotificationHandler');
     }
 
     public function registerReportWidgets()

@@ -66,13 +66,37 @@ navigation:
                 icon: icon-sitemap
                 permissions:
                     - martinimultimedia.asso
-            side-menu-item6:
-                label: Calendario
-                url: martinimultimedia/asso/calendars
-                icon: icon-calendar
+            side-menu-tasks:
+                label: martinimultimedia.asso::lang.task.menu_label
+                url: martinimultimedia/asso/tasks/mytasks
+                icon: icon-tasks
                 permissions:
-                    - martinimultimedia.asso
+                    - martinimultimedia.asso.access_tasks
+            side-menu-all-tasks:
+                label: martinimultimedia.asso::lang.task.menu_all_tasks
+                url: martinimultimedia/asso/tasks
+                icon: icon-list
+                permissions:
+                    - martinimultimedia.asso.manage_all_tasks
+            side-menu-tasks-dashboard:
+                label: martinimultimedia.asso::lang.task.menu_dashboard
+                url: martinimultimedia/asso/tasks/dashboard
+                icon: icon-dashboard
+                permissions:
+                    - martinimultimedia.asso.manage_all_tasks
+#            side-menu-item6:
+#                label: Calendario
+#                url: martinimultimedia/asso/calendars
+#                icon: icon-calendar
+#                permissions:
+#                    - martinimultimedia.asso
 permissions:
     martinimultimedia.asso:
         tab: 'martinimultimedia.asso::lang.plugin.name'
         label: 'martinimultimedia.asso::lang.plugin.permission.label'
+    martinimultimedia.asso.access_tasks:
+        tab: 'martinimultimedia.asso::lang.plugin.name'
+        label: 'martinimultimedia.asso::lang.task.permission.access_tasks'
+    martinimultimedia.asso.manage_all_tasks:
+        tab: 'martinimultimedia.asso::lang.plugin.name'
+        label: 'martinimultimedia.asso::lang.task.permission.manage_all_tasks'

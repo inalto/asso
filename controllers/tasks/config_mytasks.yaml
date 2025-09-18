@@ -1,0 +1,15 @@
+title: My Tasks
+modelClass: MartiniMultimedia\Asso\Models\Task
+list: $/martinimultimedia/asso/models/task/columns.yaml
+
+recordUrl: martinimultimedia/asso/tasks/update/:id
+
+noRecordsMessage: You have no tasks assigned.
+
+showSetup: true
+showCheckboxes: true
+
+toolbar:
+    buttons: mytasks_toolbar
+    search:
+        prompt: Search my tasks...

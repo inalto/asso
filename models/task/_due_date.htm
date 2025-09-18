@@ -1,0 +1,12 @@
+<?php if ($record->due_date): ?>
+    <span class="<?= $record->is_overdue ? 'text-danger' : ($record->is_due_soon ? 'text-warning' : '') ?>">
+        <?= $record->due_date->format('M d, Y H:i') ?>
+        <?php if ($record->is_overdue): ?>
+            <i class="icon-exclamation-triangle text-danger" title="Overdue"></i>
+        <?php elseif ($record->is_due_soon): ?>
+            <i class="icon-clock-o text-warning" title="Due soon"></i>
+        <?php endif; ?>
+    </span>
+<?php else: ?>
+    <span class="text-muted">No due date</span>
+<?php endif; ?>

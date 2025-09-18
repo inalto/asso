@@ -15,7 +15,6 @@
 
         <div class="form-buttons">
             <div class="loading-indicator-container">
-                <?php if (BackendAuth::userHasPermission('martinimultimedia.asso.access_venues.update')): ?>
                 <button
                     type="submit"
                     data-request="onSave"
@@ -34,9 +33,6 @@
                     class="btn btn-default">
                     <?= e(trans('backend::lang.form.save_and_close')) ?>
                 </button>
-                <?php endif ?>
-
-                <?php if (BackendAuth::userHasPermission('martinimultimedia.asso.access_venues.delete')): ?>
                 <button
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
@@ -44,7 +40,6 @@
                     data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
                     data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
                 </button>
-                <?php endif ?>
 
                 <span class="btn-text">
                     <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('martinimultimedia/asso/venues') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>

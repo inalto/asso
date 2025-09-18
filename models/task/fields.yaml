@@ -1,0 +1,78 @@
+fields:
+    title:
+        label: martinimultimedia.asso::lang.task.title
+        span: full
+        type: text
+        required: true
+
+    description:
+        label: martinimultimedia.asso::lang.task.description
+        span: full
+        type: textarea
+        size: small
+
+    assigned_to:
+        label: martinimultimedia.asso::lang.task.assigned_to
+        span: auto
+        type: relation
+        nameFrom: full_name
+        descriptionFrom: email
+        required: true
+
+    priority:
+        label: martinimultimedia.asso::lang.task.priority
+        span: auto
+        type: dropdown
+        options: getPriorityOptions
+        default: medium
+
+    status:
+        label: martinimultimedia.asso::lang.task.status
+        span: auto
+        type: dropdown
+        options: getStatusOptions
+        default: pending
+
+    due_date:
+        label: martinimultimedia.asso::lang.task.due_date
+        span: auto
+        type: datepicker
+        mode: datetime
+
+    created_by:
+        label: martinimultimedia.asso::lang.task.created_by
+        span: auto
+        type: relation
+        nameFrom: full_name
+        disabled: true
+        tab: martinimultimedia.asso::lang.task.tab_details
+
+    completed_at:
+        label: martinimultimedia.asso::lang.task.completed_at
+        span: auto
+        type: datepicker
+        mode: datetime
+        disabled: true
+        tab: martinimultimedia.asso::lang.task.tab_details
+        trigger:
+            action: show
+            field: status
+            condition: value[completed]
+
+secondaryTabs:
+    fields:
+        created_at:
+            label: martinimultimedia.asso::lang.task.created_at
+            span: auto
+            type: datepicker
+            mode: datetime
+            disabled: true
+            tab: martinimultimedia.asso::lang.task.tab_details
+
+        updated_at:
+            label: martinimultimedia.asso::lang.task.updated_at
+            span: auto
+            type: datepicker
+            mode: datetime
+            disabled: true
+            tab: martinimultimedia.asso::lang.task.tab_details

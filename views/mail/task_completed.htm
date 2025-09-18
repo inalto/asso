@@ -1,0 +1,20 @@
+subject = "Task Completed: {{ task.title }}"
+==
+
+<h2>Task Completed</h2>
+
+<p>Hello {{ created_by.full_name }},</p>
+
+<p>A task you assigned has been completed:</p>
+
+<div style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #28a745; margin: 20px 0;">
+    <h3>{{ task.title }}</h3>
+    <p><strong>Description:</strong> {{ task.description|raw }}</p>
+    <p><strong>Completed by:</strong> {{ assigned_user.full_name }}</p>
+    <p><strong>Completed on:</strong> {{ task.completed_at.format('M d, Y H:i') }}</p>
+</div>
+
+<p>You can view the completed task details in your dashboard.</p>
+
+<p>Best regards,<br>
+Task Management System</p>

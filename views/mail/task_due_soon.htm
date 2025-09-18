@@ -1,0 +1,21 @@
+subject = "Task Due Soon: {{ task.title }}"
+==
+
+<h2>📅 Task Due Soon</h2>
+
+<p>Hello {{ assigned_user.full_name }},</p>
+
+<p>The following task assigned to you is due soon:</p>
+
+<div style="background-color: #fff3cd; padding: 15px; border-left: 4px solid #ffc107; margin: 20px 0;">
+    <h3>{{ task.title }}</h3>
+    <p><strong>Description:</strong> {{ task.description|raw }}</p>
+    <p><strong>Priority:</strong> {{ task.priority|title }}</p>
+    <p><strong>Due Date:</strong> <span style="color: #856404;">{{ task.due_date.format('M d, Y H:i') }}</span></p>
+    <p><strong>Assigned by:</strong> {{ created_by.full_name }}</p>
+</div>
+
+<p>Please ensure you complete this task before the due date.</p>
+
+<p>Best regards,<br>
+Task Management System</p>

@@ -117,3 +117,9 @@ v1.0.39:
 v1.0.40:
     - 'Updated table martinimultimedia_asso_atecos'
     - builder_table_update_martinimultimedia_asso_atecos_2.php
+v1.0.41:
+    - 'Created table martinimultimedia_asso_tasks for To-Do System'
+    - create_tasks_table.php
+v1.0.44:
+    - 'Recreate tasks table with correct structure for To-Do System'
+    - recreate_tasks_table.php

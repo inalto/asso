@@ -30,6 +30,7 @@ fields:
         size: large
         span: full
         type: richeditor
+        required: 0
     modules:
         label: Moduli
         nameFrom: name

@@ -1,0 +1,21 @@
+subject = "Overdue Task: {{ task.title }}"
+==
+
+<h2>⚠️ Overdue Task Alert</h2>
+
+<p>Hello {{ assigned_user.full_name }},</p>
+
+<p>The following task assigned to you is now overdue:</p>
+
+<div style="background-color: #f8d7da; padding: 15px; border-left: 4px solid #dc3545; margin: 20px 0;">
+    <h3>{{ task.title }}</h3>
+    <p><strong>Description:</strong> {{ task.description|raw }}</p>
+    <p><strong>Priority:</strong> {{ task.priority|title }}</p>
+    <p><strong>Due Date:</strong> <span style="color: #dc3545;">{{ task.due_date.format('M d, Y H:i') }}</span></p>
+    <p><strong>Assigned by:</strong> {{ created_by.full_name }}</p>
+</div>
+
+<p>Please prioritize this task and update its status as soon as possible.</p>
+
+<p>Best regards,<br>
+Task Management System</p>
