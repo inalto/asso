@@ -49,3 +49,9 @@ columns:
         type: text
         searchable: true
         sortable: true
+    emails:
+        label: Email
+        type: partial
+        searchable: true
+        sortable: true
+        path: ~/plugins/martinimultimedia/asso/models/company/_emails.htm

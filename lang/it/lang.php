@@ -1,5 +1,17 @@
 <?php
 return [
+    "email_types" => [
+        "generic" => "Generica",
+        "courses" => "Corsi",
+        "accounting" => "Contabilità", 
+        "pec" => "PEC"
+    ],
+    "phone_types" => [
+        "fixed" => "Fisso",
+        "mobile" => "Cellulare",
+        "personal" => "Personale",
+        "fax" => "Fax"
+    ],
     "form" => [
         "add" => "Aggiungi",
         "attachments" => "Allegati",

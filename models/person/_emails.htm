@@ -1,7 +1,13 @@
 <ul>
 <?php
 foreach($value as $email){
-echo "<li>".$email['email']."</li>";
+    $type = isset($email['type']) ? $email['type'] : 'generic';
+    $typeLabel = Lang::get('martinimultimedia.asso::lang.email_types.' . $type);
+    if ($typeLabel === 'martinimultimedia.asso::lang.email_types.' . $type) {
+        // Fallback if translation not found
+        $typeLabel = ucfirst($type);
+    }
+    echo "<li>" . $email['email'] . " <small class='text-muted'>(" . $typeLabel . ")</small></li>";
 }
 ?>
 </ul>

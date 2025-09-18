@@ -2,7 +2,14 @@
     <?php
 if(is_array($value)) {
 foreach($value as $p){
-echo "<li>".$p['number']." ".$p['rif']."</li>";
+    $type = isset($p['type']) ? $p['type'] : 'fixed';
+    $typeLabel = Lang::get('martinimultimedia.asso::lang.phone_types.' . $type);
+    if ($typeLabel === 'martinimultimedia.asso::lang.phone_types.' . $type) {
+        // Fallback if translation not found
+        $typeLabel = ucfirst($type);
+    }
+    $reference = isset($p['rif']) && !empty($p['rif']) ? ' - ' . $p['rif'] : '';
+    echo "<li>" . $p['number'] . " <small class='text-muted'>(" . $typeLabel . ")</small>" . $reference . "</li>";
 }
 }
 ?>

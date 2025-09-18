@@ -71,6 +71,16 @@ fields:
                     label: Numero
                     span: auto
                     type: text
+                type:
+                    label: Tipo
+                    span: auto
+                    type: dropdown
+                    default: mobile
+                    options:
+                        fixed: martinimultimedia.asso::lang.phone_types.fixed
+                        mobile: martinimultimedia.asso::lang.phone_types.mobile
+                        personal: martinimultimedia.asso::lang.phone_types.personal
+                        fax: martinimultimedia.asso::lang.phone_types.fax
                 rif:
                     label: Riferimento
                     span: auto
@@ -86,6 +96,16 @@ fields:
                     label: Indirizzo
                     span: auto
                     type: text
+                type:
+                    label: Tipo
+                    span: auto
+                    type: dropdown
+                    default: generic
+                    options:
+                        generic: martinimultimedia.asso::lang.email_types.generic
+                        courses: martinimultimedia.asso::lang.email_types.courses
+                        accounting: martinimultimedia.asso::lang.email_types.accounting
+                        pec: martinimultimedia.asso::lang.email_types.pec
     company:
         label: Azienda
         span: full
