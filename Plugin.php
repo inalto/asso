@@ -29,6 +29,7 @@ class Plugin extends PluginBase
     public function register()
     {
         $this->registerConsoleCommand('asso.import', 'MartiniMultimedia\Asso\Console\Import');
+        $this->registerConsoleCommand('asso.import-gestionale', 'MartiniMultimedia\Asso\Console\ImportGestionale');
         $this->registerConsoleCommand('asso.ateco', 'MartiniMultimedia\Asso\Console\Ateco');
         $this->registerConsoleCommand('asso.comuni', 'MartiniMultimedia\Asso\Console\Comuni');
         $this->registerConsoleCommand('asso.sync-ateco', 'MartiniMultimedia\Asso\Console\SyncCompanyAteco');
