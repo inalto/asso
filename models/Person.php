@@ -19,7 +19,7 @@ class Person extends Model
      */
     public $table = 'martinimultimedia_asso_people';
   
-    public $fillable = ['first_name','last_name','birth_date','birth_city','cf','cna','emails','phones'];
+    public $fillable = ['first_name','last_name','birth_date','birth_city','cf','cna','emails','phones','task','company_id'];
   
     public $jsonable = ['phones','emails'];
     /**

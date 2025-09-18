@@ -128,6 +128,7 @@ class ImportGestionale extends Command
 
                 } catch (\Exception $e) {
                     $this->error("Error processing row {$row}: " . $e->getMessage());
+                    $this->error("Row data: " . json_encode($rowData));
                     $stats['errors']++;
                 }
 
@@ -212,8 +213,8 @@ class ImportGestionale extends Command
         
         $companyData = [
             'name' => $companyName,
-            'emails' => !empty($emails) ? json_encode(array_unique($emails)) : null,
-            'phones' => !empty($phones) ? json_encode(array_unique($phones)) : null,
+            'emails' => !empty($emails) ? array_unique($emails) : null,
+            'phones' => !empty($phones) ? array_unique($phones) : null,
             'pec' => $rowData['pec'] ?: null,
         ];
 
@@ -230,8 +231,8 @@ class ImportGestionale extends Command
                 $mergedEmails = array_unique(array_merge($existingEmails, $emails));
                 $mergedPhones = array_unique(array_merge($existingPhones, $phones));
                 
-                $company->emails = !empty($mergedEmails) ? json_encode($mergedEmails) : $company->emails;
-                $company->phones = !empty($mergedPhones) ? json_encode($mergedPhones) : $company->phones;
+                $company->emails = !empty($mergedEmails) ? $mergedEmails : $company->emails;
+                $company->phones = !empty($mergedPhones) ? $mergedPhones : $company->phones;
                 
                 if (!empty($rowData['pec']) && empty($company->pec)) {
                     $company->pec = $rowData['pec'];
@@ -244,7 +245,13 @@ class ImportGestionale extends Command
         } else {
             // Create new company
             if (!$dryRun) {
-                $company = Company::create($companyData);
+                try {
+                    $company = Company::create($companyData);
+                } catch (\Exception $e) {
+                    $this->error("Error creating company '{$companyName}': " . $e->getMessage());
+                    $this->error("Company data: " . json_encode($companyData));
+                    throw $e;
+                }
             }
             $created = true;
             $this->line("Created company: {$companyName}");
@@ -294,8 +301,8 @@ class ImportGestionale extends Command
             'last_name' => $lastName,
             'cf' => $codiceFiscale,
             'task' => $rowData['mansione'],
-            'emails' => !empty($emails) ? json_encode(array_unique($emails)) : null,
-            'phones' => !empty($phones) ? json_encode(array_unique($phones)) : null,
+            'emails' => !empty($emails) ? array_unique($emails) : null,
+            'phones' => !empty($phones) ? array_unique($phones) : null,
             'company_id' => $company ? $company->id : null,
         ];
 
@@ -312,8 +319,8 @@ class ImportGestionale extends Command
                 $mergedEmails = array_unique(array_merge($existingEmails, $emails));
                 $mergedPhones = array_unique(array_merge($existingPhones, $phones));
                 
-                $person->emails = !empty($mergedEmails) ? json_encode($mergedEmails) : $person->emails;
-                $person->phones = !empty($mergedPhones) ? json_encode($mergedPhones) : $person->phones;
+                $person->emails = !empty($mergedEmails) ? $mergedEmails : $person->emails;
+                $person->phones = !empty($mergedPhones) ? $mergedPhones : $person->phones;
                 
                 // Update other fields if they're empty
                 if (!empty($rowData['mansione']) && empty($person->task)) {
@@ -335,7 +342,13 @@ class ImportGestionale extends Command
         } else {
             // Create new person
             if (!$dryRun) {
-                $person = Person::create($personData);
+                try {
+                    $person = Person::create($personData);
+                } catch (\Exception $e) {
+                    $this->error("Error creating person '{$firstName} {$lastName}': " . $e->getMessage());
+                    $this->error("Person data: " . json_encode($personData));
+                    throw $e;
+                }
             }
             $created = true;
             $this->line("Created person: {$firstName} {$lastName}");

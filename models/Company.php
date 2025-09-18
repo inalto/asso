@@ -19,7 +19,7 @@ class Company extends Model
      */
     public $table = 'martinimultimedia_asso_companies';
 
-    public $fillable = ['name','address','zip','city','state','vat','cf','cd','ateco'];
+    public $fillable = ['name','address','zip','city','state','vat','cf','cd','ateco','phones','emails','pec'];
     public $jsonable =['phones','emails'];
     /**
      * @var array Validation rules
