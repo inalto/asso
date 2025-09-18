@@ -1,0 +1,25 @@
+scopes:
+    assigned_to_user_id:
+        label: Assegnato a
+        modelClass: Backend\Models\User
+        nameFrom: full_name
+        emptyOption: Tutti gli utenti
+        
+    status:
+        label: Stato
+        type: dropdown
+        options:
+            pending: In Attesa
+            in_progress: In Corso
+            completed: Completato
+            cancelled: Annullato
+            
+    priority:
+        label: Priorità
+        type: dropdown
+        emptyOption: Tutte le priorità
+        options:
+            low: Bassa
+            medium: Media
+            high: Alta
+            urgent: Urgente

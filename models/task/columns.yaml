@@ -1,52 +1,32 @@
 columns:
     title:
-        label: martinimultimedia.asso::lang.task.title
-        type: text
+        label: Titolo
         searchable: true
         sortable: true
-
-    priority:
-        label: martinimultimedia.asso::lang.task.priority
-        type: partial
-        path: $/martinimultimedia/asso/models/task/_priority.htm
-        sortable: true
-        width: 100px
-
-    status:
-        label: martinimultimedia.asso::lang.task.status
-        type: partial
-        path: $/martinimultimedia/asso/models/task/_status.htm
-        sortable: true
-        width: 120px
 
     assigned_to:
-        label: martinimultimedia.asso::lang.task.assigned_to
-        type: text
-        relation: assigned_to
-        select: concat(first_name, ' ', last_name)
+        label: Assegnato a
         searchable: true
+        sortable: true
+        relation: assigned_to
+        select: first_name
+
+    priority:
+        label: Priorità
+        type: text
+        sortable: true
+
+    status:
+        label: Stato
+        type: text
         sortable: true
 
     due_date:
-        label: martinimultimedia.asso::lang.task.due_date
-        type: partial
-        path: $/martinimultimedia/asso/models/task/_due_date.htm
+        label: Scadenza
+        type: datetime
         sortable: true
-        width: 150px
-
-    created_by:
-        label: martinimultimedia.asso::lang.task.created_by
-        type: text
-        relation: created_by
-        select: concat(first_name, ' ', last_name)
-        invisible: true
 
     created_at:
-        label: martinimultimedia.asso::lang.task.created_at
+        label: Creato il
         type: datetime
-        invisible: true
-
-    updated_at:
-        label: martinimultimedia.asso::lang.task.updated_at
-        type: datetime
-        invisible: true
+        sortable: true

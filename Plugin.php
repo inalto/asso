@@ -12,6 +12,20 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
     }
+
+    public function registerPermissions()
+    {
+        return [
+            'martinimultimedia.asso.access_tasks' => [
+                'tab' => 'CNA',
+                'label' => 'Access Tasks',
+            ],
+            'martinimultimedia.asso.manage_all_tasks' => [
+                'tab' => 'CNA', 
+                'label' => 'Manage All Tasks',
+            ],
+        ];
+    }
     public function register()
     {
         $this->registerConsoleCommand('asso.import', 'MartiniMultimedia\Asso\Console\Import');

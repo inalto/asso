@@ -67,23 +67,18 @@ navigation:
                 permissions:
                     - martinimultimedia.asso
             side-menu-tasks:
-                label: martinimultimedia.asso::lang.task.menu_label
-                url: martinimultimedia/asso/tasks/mytasks
+                label: Attività
+                url: martinimultimedia/asso/tasks
                 icon: icon-tasks
                 permissions:
                     - martinimultimedia.asso.access_tasks
-            side-menu-all-tasks:
-                label: martinimultimedia.asso::lang.task.menu_all_tasks
-                url: martinimultimedia/asso/tasks
-                icon: icon-list
+            side-menu-task-history:
+                label: Storico Attività
+                url: martinimultimedia/asso/tasks/history
+                icon: icon-history
                 permissions:
-                    - martinimultimedia.asso.manage_all_tasks
-            side-menu-tasks-dashboard:
-                label: martinimultimedia.asso::lang.task.menu_dashboard
-                url: martinimultimedia/asso/tasks/dashboard
-                icon: icon-dashboard
-                permissions:
-                    - martinimultimedia.asso.manage_all_tasks
+                    - martinimultimedia.asso.access_tasks
+
 #            side-menu-item6:
 #                label: Calendario
 #                url: martinimultimedia/asso/calendars

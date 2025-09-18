@@ -13,7 +13,10 @@ class Tasks extends Controller
         'Backend\Behaviors\FormController'
     ];
 
-    public $listConfig = 'config_list.yaml';
+    public $listConfig = [
+        'list' => 'config_list.yaml',
+        'history' => 'config_history.yaml'
+    ];
     public $formConfig = 'config_form.yaml';
 
     public $requiredPermissions = [
@@ -23,17 +26,44 @@ class Tasks extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-tasks');
+        
+        // Initialize both list definitions
+        $this->makeLists();
     }
 
     /**
-     * Extend list query to show user's tasks by default
+     * Extend list query for different views
      */
-    public function listExtendQuery($query)
+    public function listExtendQuery($query, $definition = null)
     {
-        // Show only tasks assigned to current user unless they have admin permission
-        if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks')) {
+        // For dashboard, show recent activities ordered by updated_at
+        if ($this->action == 'dashboard') {
+            return $query->orderBy('updated_at', 'desc')->limit(10);
+        }
+        
+        // For history page, only show completed/cancelled tasks
+        if ($this->action == 'history' || $definition == 'history') {
+            $query->whereIn('status', ['completed', 'cancelled']);
+            return $query;
+        }
+        
+        // For main tasks page, show only active tasks by default
+        if ($this->action == 'index' || $definition == 'list') {
+            // Show only active tasks (not completed/cancelled)
+            $query->whereNotIn('status', ['completed', 'cancelled']);
+            
+            // If user doesn't have manage_all_tasks permission, default to their tasks
+            if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks')) {
+                $query->where('assigned_to_user_id', $this->user->id);
+            }
+            
+            return $query;
+        }
+        
+        // For mytasks page, always show only current user's tasks
+        if ($this->action == 'mytasks') {
             $query->where('assigned_to_user_id', $this->user->id);
+            return $query;
         }
 
         return $query;
@@ -46,10 +76,12 @@ class Tasks extends Controller
     {
         if (!$model->exists) {
             $model->created_by_user_id = $this->user->id;
+            $model->created_by = $this->user->id;
             
             // If not admin, assign to self by default
             if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks')) {
                 $model->assigned_to_user_id = $this->user->id;
+                $model->assigned_to = $this->user->id;
             }
         }
 
@@ -61,75 +93,136 @@ class Tasks extends Controller
      */
     public function onMarkCompleted()
     {
-        $taskId = post('task_id');
-        $task = Task::findOrFail($taskId);
-        
-        // Check permissions
-        if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks') && 
-            $task->assigned_to_user_id != $this->user->id) {
-            Flash::error('You can only complete your own tasks.');
+        $taskIds = post('checked');
+        if (empty($taskIds)) {
+            Flash::error('Seleziona almeno un\'attività da segnare come completata.');
             return;
         }
 
-        $task->markCompleted();
-        Flash::success('Task marked as completed.');
+        $completedCount = 0;
+        $permissionErrors = 0;
+
+        foreach ($taskIds as $taskId) {
+            try {
+                $task = Task::findOrFail($taskId);
+                
+                // Check permissions
+                if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks') && 
+                    $task->assigned_to_user_id != $this->user->id) {
+                    $permissionErrors++;
+                    continue;
+                }
+
+                $task->markCompleted();
+                $completedCount++;
+            } catch (\Exception $e) {
+                // Task not found, skip it
+                continue;
+            }
+        }
+
+        if ($completedCount > 0) {
+            $message = $completedCount == 1 ? 
+                'Attività segnata come completata.' : 
+                $completedCount . ' attività segnate come completate.';
+            Flash::success($message);
+        }
+        
+        if ($permissionErrors > 0) {
+            $message = $permissionErrors == 1 ? 
+                'Un\'attività è stata saltata per restrizioni di permessi.' : 
+                $permissionErrors . ' attività sono state saltate per restrizioni di permessi.';
+            Flash::warning($message);
+        }
+        
+        if ($completedCount == 0 && $permissionErrors == 0) {
+            Flash::error('Nessuna attività trovata da segnare come completata.');
+        }
         
         return $this->listRefresh();
     }
 
     /**
-     * My Tasks page - shows only current user's tasks
+     * Custom action to unmark completed tasks
      */
-    public function mytasks()
+    public function onUnmarkCompleted()
     {
-        $this->pageTitle = 'My Tasks';
+        $taskIds = post('checked');
+        if (empty($taskIds)) {
+            Flash::error('Seleziona almeno un\'attività da riaprire.');
+            return;
+        }
+
+        $reopenedCount = 0;
+        $permissionErrors = 0;
+
+        foreach ($taskIds as $taskId) {
+            try {
+                $task = Task::findOrFail($taskId);
+                
+                // Check permissions
+                if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks') && 
+                    $task->assigned_to_user_id != $this->user->id) {
+                    $permissionErrors++;
+                    continue;
+                }
+
+                // Only unmark if task is completed
+                if ($task->status === 'completed') {
+                    $task->status = 'pending';
+                    $task->completed_at = null;
+                    $task->save();
+                    $reopenedCount++;
+                }
+            } catch (\Exception $e) {
+                // Task not found, skip it
+                continue;
+            }
+        }
+
+        if ($reopenedCount > 0) {
+            $message = $reopenedCount == 1 ? 
+                'Attività riaperta.' : 
+                $reopenedCount . ' attività riaperte.';
+            Flash::success($message);
+        }
         
-        // Override list query for this page
-        $this->listConfig = 'config_mytasks.yaml';
+        if ($permissionErrors > 0) {
+            $message = $permissionErrors == 1 ? 
+                'Un\'attività è stata saltata per restrizioni di permessi.' : 
+                $permissionErrors . ' attività sono state saltate per restrizioni di permessi.';
+            Flash::warning($message);
+        }
         
+        if ($reopenedCount == 0 && $permissionErrors == 0) {
+            Flash::error('Nessuna attività completata trovata da riaprire.');
+        }
+        
+        return $this->listRefresh();
+    }
+
+    /**
+     * Override index to set default filter for user
+     */
+    public function index()
+    {
+        BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-tasks');
+
+        $this->addCss('/plugins/martinimultimedia/asso/assets/css/dashboard.css');
+
         return $this->asExtension('ListController')->index();
     }
 
     /**
-     * Dashboard view for administrators
+     * Task History page - shows completed/cancelled tasks
      */
-    public function dashboard()
+    public function history()
     {
-        if (!$this->user->hasAccess('martinimultimedia.asso.manage_all_tasks')) {
-            return redirect('backend/martinimultimedia/asso/tasks/mytasks');
-        }
+        BackendMenu::setContext('MartiniMultimedia.Asso', 'main-menu-item', 'side-menu-task-history');
 
-        $this->pageTitle = 'Tasks Dashboard';
+        $this->pageTitle = 'Storico Attività';
         
-        $this->vars['totalTasks'] = Task::count();
-        $this->vars['pendingTasks'] = Task::where('status', 'pending')->count();
-        $this->vars['inProgressTasks'] = Task::where('status', 'in_progress')->count();
-        $this->vars['completedTasks'] = Task::where('status', 'completed')->count();
-        $this->vars['overdueTasks'] = Task::overdue()->count();
-        $this->vars['upcomingTasks'] = Task::upcoming()->count();
-        
-        $this->vars['recentTasks'] = Task::with(['assigned_to', 'created_by'])
-                                         ->orderBy('created_at', 'desc')
-                                         ->limit(10)
-                                         ->get();
-                                         
-        $this->vars['overdueTasksList'] = Task::overdue()
-                                              ->with(['assigned_to', 'created_by'])
-                                              ->orderBy('due_date', 'asc')
-                                              ->limit(10)
-                                              ->get();
+        return $this->listRender('history');
     }
 
-    /**
-     * Filter tasks by user
-     */
-    public function onFilterByUser()
-    {
-        $userId = post('user_id');
-        
-        if ($userId) {
-            $this->vars['filterUserId'] = $userId;
-            return $this->listRefresh();
-        }
-    }
 }

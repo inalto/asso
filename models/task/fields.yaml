@@ -14,23 +14,30 @@ fields:
     assigned_to:
         label: martinimultimedia.asso::lang.task.assigned_to
         span: auto
-        type: relation
-        nameFrom: full_name
-        descriptionFrom: email
+        type: dropdown
+        options: getAssignedToOptions
         required: true
 
     priority:
-        label: martinimultimedia.asso::lang.task.priority
+        label: Priorità
         span: auto
         type: dropdown
-        options: getPriorityOptions
+        options:
+            low: martinimultimedia.asso::lang.task.priority.low
+            medium: martinimultimedia.asso::lang.task.priority.medium
+            high: martinimultimedia.asso::lang.task.priority.high
+            urgent: martinimultimedia.asso::lang.task.priority.urgent
         default: medium
 
     status:
-        label: martinimultimedia.asso::lang.task.status
+        label: Stato
         span: auto
         type: dropdown
-        options: getStatusOptions
+        options:
+            pending: martinimultimedia.asso::lang.task.status.pending
+            in_progress: martinimultimedia.asso::lang.task.status.in_progress
+            completed: martinimultimedia.asso::lang.task.status.completed
+            cancelled: martinimultimedia.asso::lang.task.status.cancelled
         default: pending
 
     due_date:
@@ -42,8 +49,7 @@ fields:
     created_by:
         label: martinimultimedia.asso::lang.task.created_by
         span: auto
-        type: relation
-        nameFrom: full_name
+        type: text
         disabled: true
         tab: martinimultimedia.asso::lang.task.tab_details
 

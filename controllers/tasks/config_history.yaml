@@ -1,15 +1,16 @@
-title: My Tasks
+title: Task History
 modelClass: MartiniMultimedia\Asso\Models\Task
 list: $/martinimultimedia/asso/models/task/columns.yaml
+filter: config_filter_history.yaml
 
 recordUrl: martinimultimedia/asso/tasks/update/:id
 
-noRecordsMessage: You have no tasks assigned.
+noRecordsMessage: backend::lang.list.no_records
 
 showSetup: true
 showCheckboxes: true
 
 toolbar:
-    buttons: mytasks_toolbar
+    buttons: history_toolbar
     search:
-        prompt: Search my tasks...
+        prompt: backend::lang.list.search_prompt

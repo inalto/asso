@@ -1,6 +1,7 @@
 title: All Tasks
 modelClass: MartiniMultimedia\Asso\Models\Task
 list: $/martinimultimedia/asso/models/task/columns.yaml
+filter: config_filter.yaml
 
 recordUrl: martinimultimedia/asso/tasks/update/:id
 
@@ -13,5 +14,3 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: backend::lang.list.search_prompt
-
-filter: $/martinimultimedia/asso/models/task/scopes.yaml

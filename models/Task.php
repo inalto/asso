@@ -32,7 +32,9 @@ class Task extends Model
         'due_date',
         'completed_at',
         'created_by_user_id',
-        'assigned_to_user_id'
+        'assigned_to_user_id',
+        'assigned_to',
+        'created_by'
     ];
 
     /**
@@ -101,6 +103,25 @@ class Task extends Model
     }
 
     /**
+     * Get user options for assigned_to dropdown
+     */
+    public function getAssignedToOptions()
+    {
+        $users = User::orderBy('first_name')->orderBy('last_name')->get();
+        $options = [];
+        
+        foreach ($users as $user) {
+            $fullName = trim($user->first_name . ' ' . $user->last_name);
+            if (empty($fullName)) {
+                $fullName = $user->login;
+            }
+            $options[$user->id] = $fullName;
+        }
+        
+        return $options;
+    }
+
+    /**
      * Scope for overdue tasks
      */
     public function scopeOverdue($query)
@@ -125,6 +146,18 @@ class Task extends Model
     public function scopeAssignedTo($query, $userId)
     {
         return $query->where('assigned_to_user_id', $userId);
+    }
+
+    /**
+     * Filter scope for status filtering
+     */
+    public function scopeFilterByStatus($query, $status)
+    {
+        if ($status == 'active') {
+            return $query->whereIn('status', ['pending', 'in_progress']);
+        }
+        
+        return $query->where('status', $status);
     }
 
     /**
@@ -186,5 +219,37 @@ class Task extends Model
                $this->due_date->isFuture() && 
                $this->due_date->diffInDays(now()) <= 3 &&
                !in_array($this->status, ['completed', 'cancelled']);
+    }
+
+    /**
+     * Accessor for assigned_to field (maps to assigned_to_user_id)
+     */
+    public function getAssignedToAttribute()
+    {
+        return $this->assigned_to_user_id;
+    }
+
+    /**
+     * Mutator for assigned_to field (maps to assigned_to_user_id)
+     */
+    public function setAssignedToAttribute($value)
+    {
+        $this->assigned_to_user_id = $value;
+    }
+
+    /**
+     * Accessor for created_by field (maps to created_by_user_id)
+     */
+    public function getCreatedByAttribute()
+    {
+        return $this->created_by_user_id;
+    }
+
+    /**
+     * Mutator for created_by field (maps to created_by_user_id)
+     */
+    public function setCreatedByAttribute($value)
+    {
+        $this->created_by_user_id = $value;
     }
 }
